@@ -1,0 +1,16 @@
+.main-sidebar{
+    height: inherit;
+    min-height: 100%;
+    position: absolute;
+    top: 0;
+}
+navbar-white {
+    background-color: #fff;
+}
+.navbar-light {
+    /*background-color: #f8f9fa;*/
+}
+.main-header {
+    border-bottom: 1px solid #dee2e6;
+    z-index: 1034;
+}
