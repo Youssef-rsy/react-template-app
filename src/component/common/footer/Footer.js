@@ -1,6 +1,7 @@
 import React from 'react';
+import './Footer.css';
 
-const Footer = ()=>{
+const Footer = () => {
     return (
         <footer className="main-footer">
             {/** To the right **/}
@@ -8,7 +9,8 @@ const Footer = ()=>{
                 Anything you want
             </div>
             {/** Default to the left **/}
-            <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+            <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights
+            reserved.
         </footer>
     )
 }

@@ -1,6 +1,6 @@
 /*
-* Orson http:/*en.orson.io , autreplanete http:/*www.autreplanete.com/ 
-*  
+* Orson http:/*en.orson.io , autreplanete http:/*www.autreplanete.com/
+*
 **/
 @import "./_cards.scss";
 
@@ -546,6 +546,27 @@ $enable-hover-media-query: false;
 $enable-grid-classes: true;
 $enable-print-styles: true;
 
+html {
+  font-family: sans-serif;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
+  display: block;
+}
+
+body {
+  margin: 0;
+  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
+  background-color: #ffffff;
+}
 
 .navbar-nav {
   display: -ms-flexbox;
@@ -912,3 +933,54 @@ $enable-print-styles: true;
 .navbar-dark .navbar-text a:hover, .navbar-dark .navbar-text a:focus {
   color: #ffffff;
 }
+
+a {
+  color: #007bff;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+a:hover {
+  color: #0056b3;
+  text-decoration: none;
+}
+
+a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:not([href]):hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+.card {
+  box-shadow: 0 0 1px rgba(0,0,0,.125),0 1px 3px rgba(0,0,0,.2);
+  margin-bottom: 1rem;
+}
+
+.card-primary.card-outline {
+  border-top: 3px solid #007bff;
+}
+
+
+.card-header {
+  background-color: transparent !important;
+}
+
+[class*="sidebar-dark"] .brand-link {
+  border-bottom: 1px solid #4b545c;
+  color: rgba(255,255,255,.8);
+}
+.brand-link {
+  display: block;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  padding: .8125rem .5rem;
+  transition: width .3s ease-in-out;
+  white-space: nowrap;
+}
+
+
