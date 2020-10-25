@@ -1,0 +1,92 @@
+@import './src/scss/variables';
+
+.main-header {
+    transition: margin-left .3s ease-in-out;
+    margin-left: 250px;
+}
+
+:not(.layout-fixed) .main-sidebar {
+    height: inherit;
+    min-height: 100%;
+    position: absolute;
+    top: 0;
+}
+
+.elevation-4 {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .22) !important;
+}
+
+[class*=sidebar-dark-] {
+    background-color: #343a40;
+}
+
+.main-sidebar {
+    overflow-y: hidden;
+    z-index: 1038;
+}
+
+.main-sidebar, .main-sidebar::before {
+    transition: margin-left .3s ease-in-out, width .3s ease-in-out;
+    width: 250px;
+}
+
+.sidebar {
+    height: calc(100% - (3.5rem + 1px));
+    overflow-y: auto;
+    padding-bottom: 0;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    padding-top: 0;
+}
+
+[class*="sidebar-dark"] .user-panel {
+    border-bottom: 1px solid #4f5962;
+}
+
+.user-panel .info {
+    text-decoration: none;
+    color: $secondary;
+}
+
+nav ul li {
+    list-style: none;
+}
+
+li a:hover{
+    background-color: $light;
+    color: $dark;
+}
+.nav-link[class*="active"]{
+    background-color: $light;
+    color: $primary;
+}
+
+.nav-link[aria-expanded="true"]{
+    background-color: $primary;
+}
+
+.nav-item-parent:after{
+        font-family: "Font Awesome 5 Free";
+        content: "\f104";
+        display: inline-block;
+        padding-right: 3px;
+        vertical-align: middle;
+        font-weight: 900;
+}
+.nav-item-parent[aria-expanded="true"]:after {
+    font-family: "Font Awesome 5 Free";
+    content: "\f107";
+    display: inline-block;
+    padding-right: 3px;
+    vertical-align: middle;
+    //background-color: $primary;
+    font-weight: 900;
+}
+
+li ul {
+    padding: 0.3rem;
+}
+
+a[class*="p-nav-link"] {
+    padding-left: 1.5em !important; ;
+}

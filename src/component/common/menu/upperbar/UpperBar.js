@@ -1,5 +1,5 @@
 import React from 'react';
-import './UpperBar.css';
+import './UpperBar.scss';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 const UpperBar=  () =>{

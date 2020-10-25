@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react';
-import './App.css';
+import './App.scss';
 import Menu from '../common/menu/Menu';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import UpperBar from "../common/menu/upperbar/UpperBar";
