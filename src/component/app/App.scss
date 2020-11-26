@@ -1,3 +1,4 @@
+
 .brand-image {
   float: left;
   line-height: .8;
@@ -38,15 +39,23 @@ body,
  * add : min-height: 94vh;
  */
 .wrapper .content-wrapper {
-  min-height: calc(100vh - calc(3.5rem + 1px) - calc(3.5rem + 1px));
+  min-height: 100vh;
 }
 
 .layout-boxed .wrapper {
   box-shadow: 0 0 10 rgba(0, 0, 0, 0.3);
 }
 
+.content{
+  background-color: #fAfAfA;
+  padding: 10px 0 0 0;
+  border-radius: 19px 19px 0 0;
+}
+
 .content-wrapper {
-  background: #f4f6f9;
+  background-color: #fAfAfA;
+  margin-left: 250px;
+  transition: margin-left 0.1s ease-in-out;
 }
 .content-header .breadcrumb {
   background: 0 0;
@@ -68,11 +77,13 @@ body,
   margin-right: auto;
   margin-left: auto;
 }
-
+/*
 body:not(.sidebar-mini-md) .content-wrapper, body:not(.sidebar-mini-md) .main-footer, body:not(.sidebar-mini-md) .main-header {
   transition: margin-left .3s ease-in-out;
-  margin-left: 250px;
+  margin-left: 60px;
 }
+*/
+
 
 @keyframes App-logo-spin {
   from {

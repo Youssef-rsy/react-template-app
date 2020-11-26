@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Page = () => {
+const Profil = () => {
     return (<div className="content">
         <div className="container-fluid">
             <div className="row">
@@ -71,4 +71,4 @@ const Page = () => {
         {/** /.container-fluid **/}
     </div>)
 }
-export default Page;
+export default Profil;

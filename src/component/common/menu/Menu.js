@@ -4,10 +4,7 @@ import UpperBar from './upperbar/UpperBar';
 
 const Menu = () => {
     return (
-        <Fragment>
-            <UpperBar/>
             <SideBar/>
-        </Fragment>
     )
 }
 

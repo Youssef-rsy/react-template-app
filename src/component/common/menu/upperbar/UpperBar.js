@@ -1,98 +1,32 @@
 import React from 'react';
 import './UpperBar.scss';
+import DropDownItem from "../../dropdownitem/DropDownItem";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import User from './../../../../asset/user.png';
+import { Button } from 'bootstrap';
 
-const UpperBar=  () =>{
-
+const UpperBar=  (props) =>{
+   
     return (
-        <nav className="main-header navbar navbar-expand navbar-white navbar-light">
+        <nav className=" navbar navbar-expand navbar-light">
             {/** Left navbar links **/}
             <ul className="navbar-nav">
-                <li className="nav-item">
-                    <a className="nav-link" data-widget="pushmenu" href="#" role="button"><FontAwesomeIcon icon={['fas', 'bars']} /></a>
+                <li className="nav-item p-0" >
+                    <a className="nav-link" onClick={() => props.show() } data-widget="pushmenu" href="#" role="button">
+                        <FontAwesomeIcon icon={props.showMenu ? "align-right":"align-left"}/>
+                    </a>
                 </li>
-                <li className="nav-item d-none d-sm-inline-block">
-                    <a href="index3.html" className="nav-link">Home</a>
-                </li>
-                <li className="nav-item d-none d-sm-inline-block">
-                    <a href="#" className="nav-link">Contact</a>
+                <li className="nav-item p-0" >
+                    <a className="nav-link" onClick={() => props.show() } data-widget="pushmenu" href="#" role="button">
+                        <FontAwesomeIcon icon="expand-arrows-alt"  />
+                    </a>
                 </li>
             </ul>
 
-            {/** SEARCH FORM **/}
-            <form className="form-inline ml-3">
-                <div className="input-group input-group-sm">
-                    <input className="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search"/>
-                    <div className="input-group-append">
-                        <button className="btn btn-navbar" type="submit">
-                            <FontAwesomeIcon icon={['fas', 'search']} />
-                        </button>
-                    </div>
-                </div>
-            </form>
-
             {/** Right navbar links **/}
             <ul className="navbar-nav ml-auto">
-                {/** Messages Dropdown menu **/}
-                <li className="nav-item dropdown">
-                    <a className="nav-link" data-toggle="dropdown" href="#">
-                        <FontAwesomeIcon icon={['fas', 'comments']} />
-                        <span className="badge badge-danger navbar-badge">3</span>
-                    </a>
-                    <div className="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                        <a href="#" className="dropdown-item">
-                            {/** Message Start **/}
-                            <div className="media">
-                                <img src="dist/img/user1-128x128.jpg" alt="User Avatar" className="img-size-50 mr-3 img-circle" />
-                                <div className="media-body">
-                                    <h3 className="dropdown-item-title">
-                                        Brad Diesel
-                                        <span className="float-right text-sm text-danger"><FontAwesomeIcon icon={['fas', 'stars']} /></span>
-                                    </h3>
-                                    <p className="text-sm">Call me whenever you can...</p>
-                                    <p className="text-sm text-muted">
-                                        <FontAwesomeIcon icon={['fas', 'clock']} className="mr-1" /> 4 Hours Ago</p>
-                                </div>
-                            </div>
-                            {/** Message End **/}
-                        </a>
-                        <div className="dropdown-divider"></div>
-                        <a href="#" className="dropdown-item">
-                            {/** Message Start **/}
-                            <div className="media">
-                                <img src="dist/img/user8-128x128.jpg" alt="User Avatar" className="img-size-50 img-circle mr-3" />
-                                <div className="media-body">
-                                    <h3 className="dropdown-item-title">
-                                        John Pierce
-                                        <span className="float-right text-sm text-muted"><FontAwesomeIcon icon={['fas', 'stars']} /></span>
-                                    </h3>
-                                    <p className="text-sm">I got your message bro</p>
-                                    <p className="text-sm text-muted"><FontAwesomeIcon icon={['fas', 'clock']} />4 Hours Ago</p>
-                                </div>
-                            </div>
-                            {/** Message End **/}
-                        </a>
-                        <div className="dropdown-divider"></div>
-                        <a href="#" className="dropdown-item">
-                            {/** Message Start **/}
-                            <div className="media">
-                                <img src="dist/img/user3-128x128.jpg" alt="User Avatar" className="img-size-50 img-circle mr-3" />
-                                <div className="media-body">
-                                    <h3 className="dropdown-item-title">
-                                        Nora Silvester
-                                        <span className="float-right text-sm text-warning"><FontAwesomeIcon icon={['fas', 'stars']} /></span>
-                                    </h3>
-                                    <p className="text-sm">The subject goes here</p>
-                                    <p className="text-sm text-muted"><FontAwesomeIcon icon={['fas', 'clock']} className="mr-4"/> 4 Hours Ago</p>
-                                </div>
-                            </div>
-                            {/** Message End **/}
-                        </a>
-                        <div className="dropdown-divider"></div>
-                        <a href="#" className="dropdown-item dropdown-footer">See All Messages</a>
-                    </div>
-                </li>
                 {/** Notifications Dropdown menu **/}
+                
                 <li className="nav-item dropdown">
                     <a className="nav-link" data-toggle="dropdown" href="#">
                         <FontAwesomeIcon icon={['fas', 'bell']} />
@@ -100,30 +34,29 @@ const UpperBar=  () =>{
                     </a>
                     <div className="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                         <span className="dropdown-header">15 Notifications</span>
-                        <div className="dropdown-divider"></div>
-                        <a href="#" className="dropdown-item">
-                            <FontAwesomeIcon icon={['fas', 'envelope']} className="mr-2" />
-                            4 new messages
-                            <span className="float-right text-muted text-sm">3 mins</span>
-                        </a>
-                        <div className="dropdown-divider"></div>
-                        <a href="#" className="dropdown-item">
-                            <FontAwesomeIcon icon={['fas', 'users']} className="mr-2" />8 friend requests
-                            <span className="float-right text-muted text-sm">12 hours</span>
-                        </a>
-                        <div className="dropdown-divider"></div>
-                        <a href="#" className="dropdown-item">
-                            <FontAwesomeIcon icon={['fas', 'file']} className="mr-2" />3 new reports
-                            <span className="float-right text-muted text-sm">2 days</span>
-                        </a>
-                        <div className="dropdown-divider"></div>
-                        <a href="#" className="dropdown-item dropdown-footer">See All Notifications</a>
                     </div>
                 </li>
-                <li className="nav-item">
-                    <a className="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button"><i
-                        className="fas fa-th-large"></i></a>
+
+                <li className="nav-item dropdown py-1">
+                    <a className="pt-1 px-0 show" href="#"  data-toggle="dropdown"id="dropdownMenuButton"  aria-haspopup="true" aria-expanded="false">
+                        <div className="media d-flex align-items-center">
+                        <img src={User} alt="AdminLTE Logo" className="brand-image rounded-circle"/>
+                            <div className="media-body ml-2 text-dark align-items-center d-none d-lg-block">
+                                <span className="mb-0 font-small font-weight-bold">Rossamy Youssef</span>
+                            </div>
+                        </div>
+                    </a>
+                    <div className="dropdown-menu mt-1"  aria-labelledby="dropdownMenuButton">
+                        <DropDownItem href="#" icon="user-circle" title="My Profile"  />
+                        <DropDownItem href="#" icon="cog" title="Settings" />
+                        {/*<DropDownItem href="#" icon="envelope-open-text" title="Messages" color="" /> */}
+                        {/*<DropDownItem href="#" icon="user-shield" title="Support" color="" /> */}
+                        <hr/>
+                        <DropDownItem href="#" icon="sign-out-alt" title="Logout" color="red" />
+                    </div>
                 </li>
+                
+
             </ul>
         </nav>
     )}

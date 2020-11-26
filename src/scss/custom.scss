@@ -2,6 +2,7 @@
 * Orson http:/*en.orson.io , autreplanete http:/*www.autreplanete.com/
 *
 **/
+@import "~bootstrap/scss/bootstrap";
 @import "~bootstrap/scss/functions";
 @import "~bootstrap/scss/mixins";
 @import "variables";
@@ -525,7 +526,7 @@ $enable-hover-media-query: false;
 $enable-grid-classes: true;
 $enable-print-styles: true;
 
-@import "~bootstrap/scss/bootstrap";
+
 
 html {
   font-family: sans-serif;
@@ -560,6 +561,7 @@ a {
 a:hover {
   color: $light;
   text-decoration: none;
+  background: none;
 }
 
 a:not([href]) {
@@ -603,4 +605,9 @@ a:not([href]):hover {
   white-space: nowrap;
 }
 
-
+.breadcrumb-item+.breadcrumb-item:before {
+  content: "\f101";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  color: #66799e;
+}
