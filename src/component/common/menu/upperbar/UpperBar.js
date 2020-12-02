@@ -8,16 +8,16 @@ import { Button } from 'bootstrap';
 const UpperBar=  (props) =>{
    
     return (
-        <nav className=" navbar navbar-expand navbar-light">
+        <nav className="upperbar navbar navbar-expand navbar-light">
             {/** Left navbar links **/}
             <ul className="navbar-nav">
                 <li className="nav-item p-0" >
                     <a className="nav-link" onClick={() => props.show() } data-widget="pushmenu" href="#" role="button">
-                        <FontAwesomeIcon icon={props.showMenu ? "align-right":"align-left"}/>
+                        <FontAwesomeIcon icon={props.showMenu ? "bars":"align-left"}/>
                     </a>
                 </li>
                 <li className="nav-item p-0" >
-                    <a className="nav-link" onClick={() => props.show() } data-widget="pushmenu" href="#" role="button">
+                    <a className="nav-link" data-widget="pushmenu" href="#" role="button">
                         <FontAwesomeIcon icon="expand-arrows-alt"  />
                     </a>
                 </li>
@@ -55,8 +55,6 @@ const UpperBar=  (props) =>{
                         <DropDownItem href="#" icon="sign-out-alt" title="Logout" color="red" />
                     </div>
                 </li>
-                
-
             </ul>
         </nav>
     )}

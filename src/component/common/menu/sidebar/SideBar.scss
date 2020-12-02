@@ -53,32 +53,36 @@ aside{
     text-decoration: none;
     color: $secondary;
 }
-.nav-menu :hover{
 
-}
 
 .navbar-nav :hover{
     color: #eaedf2;
 }
 
-nav ul li {
+.sidebar nav ul li {
     list-style: none;
 }
+.sidebar li a{
+    color: $secondary;
+    text-decoration: none;
+    background-color: transparent;
+    border-radius: 0.25rem !important;
+    font-weight: 400;
+}
 
-
-li a:hover{
+.sidebar li a:hover{
     //background: transparent;
     opacity: 0.6;
     color: #eaedf2;
     background-color: #233344;
 }
-.nav-link{
+.sidebar .nav-link{
     font-size: 1rem;
     vertical-align: middle;
     padding: .55rem .75rem;
     border-radius: .75rem;
 }
-.nav-link[class*="active"]{
+.sidebar .nav-link[class*="active"]{
    // background-color: $light; 
    color: #eaedf2;
    background-color: #233344;
@@ -96,12 +100,12 @@ li a:hover{
     font-weight: 700;
 }
 */
-.nav-link[aria-expanded="true"]{
+.sidebar .nav-link[aria-expanded="true"]{
     //background-color: $primary;
     //font-weight: bold;
 }
 
-.nav-item-parent:after{
+.sidebar .nav-item-parent:after{
         font-family: "Font Awesome 5 Free";
         content: "\f104";
         display: inline-block;
@@ -109,7 +113,7 @@ li a:hover{
         vertical-align: middle;
         font-weight: 900;
 }
-.nav-item-parent[aria-expanded="true"]:after {
+.sidebar .nav-item-parent[aria-expanded="true"]:after {
     font-family: "Font Awesome 5 Free";
     content: "\f107";
     display: inline-block;
@@ -119,10 +123,10 @@ li a:hover{
     font-weight: 900;
 }
 
-li ul {
+.sidebar li ul {
     padding: 0.3rem;
 }
 
-a[class*="p-nav-link"] {
+.sidebar a[class*="p-nav-link"] {
     padding-left: 1.5em !important; ;
 }
