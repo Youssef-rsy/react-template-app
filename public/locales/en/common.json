@@ -1,0 +1,10 @@
+{
+    "upperBar" : {
+        "user" : {
+            "profil":"My Profile",
+            "setting":"Setting",
+            "support":"Support",
+            "logout":"Logout"
+        }
+    }
+}

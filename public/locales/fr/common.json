@@ -1,0 +1,13 @@
+{
+    "upperBar" : {
+        "user" : {
+            "profil":"Mon Profile",
+            "setting":"Paramétrage",
+            "support":"Support",
+            "logout":"Déconnecter"
+        }
+    },
+    "sideBar":{
+        
+    }
+}

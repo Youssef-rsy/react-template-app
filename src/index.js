@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
-
-import { Provider } from 'react-redux'
-import store from './component/store'
+import { Provider } from 'react-redux';
+import store from './component/store';
+import './i18next';
 
 import './index.scss';
 import App from './component/app/App';
@@ -10,13 +10,13 @@ import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import './font/fontAwsome';
 
-
-
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-    <App />
-  </Provider>
+      <Suspense fallback={<div>Loading ……</div>}>
+        <App />
+      </Suspense>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

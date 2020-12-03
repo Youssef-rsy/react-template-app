@@ -7,7 +7,7 @@
 /* ********      VARIABLES      ******** */
 /* ************************************* */
 const initialState = {
-    reduxUp: false,
+  reduxUp: false,
 };
 
 /* ************************************* */
@@ -29,15 +29,14 @@ export default reducer;
  * @param action
  */
 function reducer(state = initialState, action) {
-   
-    switch (action.type) {
-        case 'REDUX_FULFILLED': {
-            return {
-                ...state,
-                reduxUp: action.payload.body(false).reduxUp,
-            };
-        }
-        default:
-            return state;
+  switch (action.type) {
+    case 'REDUX_FULFILLED': {
+      return {
+        ...state,
+        reduxUp: action.payload.body(false).reduxUp,
+      };
     }
+    default:
+      return state;
+  }
 }
