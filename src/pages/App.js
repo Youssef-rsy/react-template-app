@@ -1,11 +1,11 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import './App.scss';
-import Menu from '../common/menu/Menu';
-import UpperBar from '../common/menu/upperbar/UpperBar';
-import SideBar from '../common/menu/sidebar/SideBar';
-import ContentHeader from '../common/contentHeader/ContentHeader';
+import UpperBar from './../components/common/upperbar/UpperBar';
+import SideBar from './../components/common/sidebar/SideBar';
+import ContentHeader from './../components/common/contentHeader/ContentHeader';
+import Profil from './Profil/Profil';
 import Page from './page/Page';
-import Profil from './profil/Profil';
+import Setting from './Setting/Setting';
 
 class App extends Component {
   constructor(props) {
@@ -29,6 +29,7 @@ class App extends Component {
         >
           <UpperBar show={this.show} showMenu={this.state.showdata} />
           <ContentHeader />
+          {/*<Setting />*/}
           <Profil />
         </div>
       </div>

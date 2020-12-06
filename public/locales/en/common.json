@@ -6,5 +6,37 @@
             "support":"Support",
             "logout":"Logout"
         }
+    },
+    "setting":{
+        "title":"Setting",
+        "language":{
+            "title":"Language",
+            "setLanguageLabel":"Change displayed language :",
+            "comment":"The language change will be immediate"
+        }
+    },
+    "profil":{
+        "personal":{
+            "title":"Personal",
+            "firstName":"First name",
+            "lastName":"Last name",
+            "gender":"Sexe",
+            "birthDay":"Birth day",
+            "address":"Address",
+            "phoneNumber":"Phone number"
+        },
+        "professional":{
+            "title":"Profesional",
+            "team":"Team",
+            "post":"Post",
+            "status":"Status",
+            "integrationDate":"Integration date"
+        },
+        "agency":{
+            "title":"Agency",
+            "town":"Town",
+            "address":"Adress"
+        },
+        "changePassword":"Update Password"
     }
 }

@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import './SideBar.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Logo from './../../../../asset/adminTemplateLogo.png';
+import Logo from './../../../assets/adminTemplateLogo.png';
 
 const SideBar = (props) => {
   return (
@@ -15,7 +15,7 @@ const SideBar = (props) => {
       <a href="index3.html" className="brand-link">
         <img
           src={Logo}
-          alt="AdminLTE Logo"
+          alt="React Template App Logo"
           className="brand-image  rounded-circle elevation-3"
         />
         <span className="brand-text font-weight-light">Admin Template</span>

@@ -6,8 +6,8 @@
     "node_modules"
   ],
   "scripts": {
-    "dev": "webpack serve --config ./webpack.config.js",
-    "start": "webpack --config webpack.config.js",
+    "dev": "webpack serve --config ./webpack/webpack.config.js",
+    "start": "webpack serve --config ./webpack/webpack.config.js",
     "build": "webpack --mode production",
     "format": "prettier --write \"src/**/*.js\"",
     "test": "react-scripts test",
@@ -28,6 +28,7 @@
     "bootstrap-loader": "^3.0.4",
     "core-util-is": "^1.0.2",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "faker": "^5.1.0",
     "i18next": "^19.8.4",
     "i18next-browser-languagedetector": "^6.0.1",
     "i18next-xhr-backend": "^3.2.2",
@@ -41,6 +42,7 @@
     "react-redux": "^7.2.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.4",
+    "react-select": "^3.1.1",
     "redux": "^4.0.5",
     "redux-logger": "^3.0.6",
     "tether": "^1.4.7",

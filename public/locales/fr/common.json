@@ -7,7 +7,36 @@
             "logout":"Déconnecter"
         }
     },
-    "sideBar":{
-        
+    "setting":{
+        "title":"Paramétrage",
+        "language":{
+            "title":"Langue",
+            "setLanguageLabel":"Changer la langue d'affichage :",
+            "comment":"Le changement de langue sera immédiat"
+        }
+    },
+    "profil":{
+        "personal":{
+            "title":"Personelle",
+            "firstName":"Nom",
+            "lastName":"Prenon",
+            "gender":"Sexe",
+            "birthDay":"Date de Naissance",
+            "address":"Adresse",
+            "phoneNumber":"Télèphone"
+        },
+        "professional":{
+            "title":"Profesionnelle",
+            "team":"Equipe",
+            "post":"Poste",
+            "status":"Status",
+            "integrationDate":"Date d'intégration"
+        },
+        "agency":{
+            "title":"Agence",
+            "town":"Ville",
+            "address":"Adresse"
+        },
+        "changePassword":"Modifier le mot de passe"
     }
 }

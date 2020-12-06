@@ -565,7 +565,7 @@ a:hover {
   color: $secondary;
   text-decoration: none;
   background: none;
-  font-weight: 600;
+ 
 }
  
 a:not([href]) {
@@ -615,3 +615,5 @@ a:not([href]):hover {
   font-weight: 900;
   color: #66799e;
 }
+
+select#gender option[value='FR']   { background-color:red;   }
