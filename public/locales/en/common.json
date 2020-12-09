@@ -17,26 +17,62 @@
     },
     "profil":{
         "personal":{
-            "title":"Personal",
-            "firstName":"First name",
-            "lastName":"Last name",
-            "gender":"Sexe",
-            "birthDay":"Birth day",
-            "address":"Address",
-            "phoneNumber":"Phone number"
+            "title":"Personelle",
+            "firstName":{
+                "label" : "First name",
+                "name" : "firstName"
+            },
+            "lastName":{
+                "label" : "Last name",
+                "name" : "lastName"
+            },
+            "gender":{
+                "label" : "Gender",
+                "name" : "gender"
+            },
+            "birthDay":{
+                "label" : "Birth Day",
+                "name" : "birthDay"
+            },
+            "address":{
+                "label" : "Address",
+                "name" : "personalAddress"
+            },
+            "phoneNumber":{
+                "label" : "Phone Number",
+                "name" : "phoneNumber"
+            }
         },
         "professional":{
-            "title":"Profesional",
-            "team":"Team",
-            "post":"Post",
-            "status":"Status",
-            "integrationDate":"Integration date"
+            "title":"Professional",
+            "team":{
+                "label" : "Team",
+                "name" : "team"
+            },
+            "post":{
+                "label" : "Post",
+                "name" : "post"
+            },
+            "status":{
+                "label" : "Status",
+                "name" : "status"
+            },
+            "integrationDate":{
+                "label" : "Integration Date",
+                "name" : "integrationDate"
+            }
         },
         "agency":{
             "title":"Agency",
-            "town":"Town",
-            "address":"Adress"
+            "city":{
+                "label" : "City",
+                "name" : "city"
+            },
+            "address":{
+                "label" : "Address",
+                "name" : "agencyAddress"
+            }
         },
-        "changePassword":"Update Password"
+        "changePassword":"Update password"
     }
 }

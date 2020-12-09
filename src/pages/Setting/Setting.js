@@ -60,7 +60,7 @@ const Setting = (props) => {
                         )}
                         options={options}
                       />
-                      <small id="emailHelp" class="form-text text-muted ">
+                      <small id="emailHelp" className="form-text text-muted ">
                         {t('setting.language.comment')}
                       </small>
                     </div>

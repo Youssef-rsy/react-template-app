@@ -18,24 +18,60 @@
     "profil":{
         "personal":{
             "title":"Personelle",
-            "firstName":"Nom",
-            "lastName":"Prenon",
-            "gender":"Sexe",
-            "birthDay":"Date de Naissance",
-            "address":"Adresse",
-            "phoneNumber":"Télèphone"
+            "firstName":{
+                "label" : "Nom",
+                "name" : "firstName"
+            },
+            "lastName":{
+                "label" : "Prenon",
+                "name" : "lastName"
+            },
+            "gender":{
+                "label" : "Sexe",
+                "name" : "gender"
+            },
+            "birthDay":{
+                "label" : "Date de Naissance",
+                "name" : "birthDay"
+            },
+            "address":{
+                "label" : "Adresse",
+                "name" : "personalAddress"
+            },
+            "phoneNumber":{
+                "label" : "Télèphone",
+                "name" : "phoneNumber"
+            }
         },
         "professional":{
             "title":"Profesionnelle",
-            "team":"Equipe",
-            "post":"Poste",
-            "status":"Status",
-            "integrationDate":"Date d'intégration"
+            "team":{
+                "label" : "Equipe",
+                "name" : "team"
+            },
+            "post":{
+                "label" : "Poste",
+                "name" : "post"
+            },
+            "status":{
+                "label" : "Status",
+                "name" : "status"
+            },
+            "integrationDate":{
+                "label" : "Date d'intégration",
+                "name" : "integrationDate"
+            }
         },
         "agency":{
             "title":"Agence",
-            "town":"Ville",
-            "address":"Adresse"
+            "city":{
+                "label" : "Ville",
+                "name" : "city"
+            },
+            "address":{
+                "label" : "Adresse",
+                "name" : "agencyAddress"
+            }
         },
         "changePassword":"Modifier le mot de passe"
     }

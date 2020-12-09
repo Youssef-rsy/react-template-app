@@ -4,6 +4,7 @@ import faker from "faker";
 import DropDownItem from '../../shared/DropdownItem/DropDownItem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import User from './../../../assets/user.png';
+import constants from './../../../utilities/constants/constants';
 import './UpperBar.scss';
 
 const UpperBar = (props) => {
@@ -70,25 +71,25 @@ const UpperBar = (props) => {
             aria-labelledby="dropdownMenuButton"
           >
             <DropDownItem
-              href="#"
+              href={constants.routes.profile}
               icon="user-circle"
               title={t('upperBar.user.profil')}
             />
             <DropDownItem
-              href="#"
+              href={constants.routes.setting}
               icon="cog"
               title={t('upperBar.user.setting')}
             />
             {/*<DropDownItem href="#" icon="envelope-open-text" title="Messages" color="" /> */}
             <DropDownItem
-              href="#"
+              href={constants.routes.support}
               icon="user-shield"
               title={t('upperBar.user.support')}
               color=""
             />
             <hr />
             <DropDownItem
-              href="#"
+              href={constants.routes.logout}
               icon="sign-out-alt"
               title={t('upperBar.user.logout')}
               color="red"

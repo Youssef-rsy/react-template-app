@@ -1,6 +1,7 @@
 import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import { BrowserRouter } from "react-router-dom";
 import 'bootstrap/dist/js/bootstrap.min.js';
 
 import store from './store';
@@ -13,7 +14,9 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <Suspense fallback={<div>Loading ……</div>}>
-        <App />
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
       </Suspense>
     </Provider>
   </React.StrictMode>,

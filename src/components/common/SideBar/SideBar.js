@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import './SideBar.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Logo from './../../../assets/adminTemplateLogo.png';
+import { Link, NavLink } from 'react-router-dom';
 
 const SideBar = (props) => {
   return (
@@ -27,91 +28,45 @@ const SideBar = (props) => {
         {/** Sidebar menu **/}
         <nav className="navbar-nav w-100 p-2">
           <li className="w-100">
-            <a
-              className="nav-item nav-link active w-100 d-flex flex-row px-1"
-              data-toggle="collapse"
-              href="#collapseExample0"
-              role="button"
-              aria-expanded="false"
-              aria-controls="collapseExample"
-            >
+            <NavLink to="/" exact={true}
+              className="nav-item nav-link w-100 d-flex flex-row px-1"
+              activeClassName="active ">
               <FontAwesomeIcon
                 icon="check-square"
                 className="nav-icon d-flex align-self-center"
               />
               <p className="d-flex flex-row ml-2 mb-0 w-100 justify-content-between ">
-                <span>Home</span>
+                <span>Dashboard</span>
               </p>
-            </a>
+            </NavLink>
           </li>
-          <ul className="navbar-nav nav-menu w-100">
-            <li className="w-100">
-              <a
-                className="nav-item nav-link nav-item-parent w-100 d-flex flex-row px-1"
-                data-toggle="collapse"
-                href="#collapseExample0"
-                role="button"
-                aria-expanded="false"
-                aria-controls="collapseExample"
-              >
-                <FontAwesomeIcon
-                  icon="check-square"
-                  className="nav-icon d-flex align-self-center"
-                />
-                <p className="d-flex flex-row ml-2 mb-0 w-100 justify-content-between ">
-                  <span>Dashboard</span>
-                </p>
-              </a>
-            </li>
-            <li className="collapse" id="collapseExample0">
-              <ul>
-                <li className="nav-item ">
-                  <a className="nav-link p-nav-link active" href="#">
-                    Sous Menu N°1
-                  </a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-          <ul className="navbar-nav w-100">
-            <li className="w-100">
-              <a
-                className="nav-item nav-link nav-item-parent w-100 d-flex flex-row px-1"
-                data-toggle="collapse"
-                href="#collapseExample"
-                role="button"
-                aria-expanded="false"
-                aria-controls="collapseExample"
-              >
-                <FontAwesomeIcon
-                  icon="check-square"
-                  className="nav-icon d-flex align-self-center"
-                />
-                <p className="d-flex flex-row ml-2 mb-0 w-100 justify-content-between ">
-                  <span>Menu 1</span>
-                </p>
-              </a>
-            </li>
-            <li className="collapse" id="collapseExample">
-              <ul>
-                <li className="nav-item ">
-                  <a className="nav-link p-nav-link" href="#">
-                    Sous Menu N°1
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link p-nav-link" href="#">
-                    Sous Menu N°2
-                  </a>
-                </li>
-                <li className="nav-item active">
-                  <a className="nav-link p-nav-link" href="#">
-                    Sous Menu N°3
-                  </a>
-                </li>
-              </ul>
-            </li>
-          </ul>
+          <li className="w-100">
+            <NavLink to="/profil"
+              className="nav-item nav-link w-100 d-flex flex-row px-1"
+              activeClassName="active ">
+              <FontAwesomeIcon
+                icon="check-square"
+                className="nav-icon d-flex align-self-center"
+              />
+              <p className="d-flex flex-row ml-2 mb-0 w-100 justify-content-between ">
+                <span>Profil</span>
+              </p>
+            </NavLink>
+          </li>
+          <li className="w-100">
+            <NavLink to="/setting"
+              className="nav-item nav-link w-100 d-flex flex-row px-1"
+              activeClassName="active ">
+              <FontAwesomeIcon
+                icon="check-square"
+                className="nav-icon d-flex align-self-center"
+              />
+              <p className="d-flex flex-row ml-2 mb-0 w-100 justify-content-between ">
+                <span>Setting</span>
+              </p>
+            </NavLink>
+          </li>
+          {/**  
           <ul className="navbar-nav w-100">
             <li className="w-100">
               <a
@@ -197,7 +152,7 @@ const SideBar = (props) => {
               </ul>
             </li>
           </ul>
-          <div
+        */}<div
             className="collapse d-flex flex-column"
             id="collapseExample2"
           ></div>
