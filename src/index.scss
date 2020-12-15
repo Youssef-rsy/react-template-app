@@ -1,3 +1,16 @@
 @import "./utilities/scss/variables";
 @import './utilities/scss/custom.scss';
 
+@font-face {
+    font-family: "OpenSans";
+    src: local("OpenSansSemiBold"),
+      url("./utilities/fonts/OpenSans-SemiBold.ttf") format("truetype");
+    font-weight: normal ;
+  }
+  
+@font-face {
+    font-family: "Roboto";
+    src: local("RobotoRegular"),
+      url("./utilities/fonts/Roboto-Regular.ttf") format("truetype");
+    font-weight: normal;
+  }

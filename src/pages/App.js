@@ -25,8 +25,8 @@ class App extends Component {
     return (
       <div className="wrapper">
         <SideBar show={this.state.showdata} />
+        <UpperBar show={this.show} showMenu={this.state.showdata} />
         <div className={'content-wrapper ' + (this.state.showdata ? 'ml-0' : '')}>
-          <UpperBar show={this.show} showMenu={this.state.showdata} />
           <ContentHeader />
           <Switch>
             <Route path="/profil">

@@ -11,7 +11,7 @@ const UpperBar = (props) => {
   const { name: { firstName, lastName } } = faker;
   const { t } = useTranslation();
   return (
-    <nav className="upperbar navbar navbar-expand navbar-light">
+    <nav className={`upperbar  ${props.showMenu ? 'with-menu-bar' : 'without-menu-bar'} navbar navbar-expand navbar-light  `}>
       {/** Left navbar links **/}
       <ul className="navbar-nav">
         <li className="nav-item p-0">

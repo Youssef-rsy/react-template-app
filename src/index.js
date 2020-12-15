@@ -4,6 +4,8 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from "react-router-dom";
 import 'bootstrap/dist/js/bootstrap.min.js';
 
+import './utilities/fonts/fonts.js';
+
 import store from './store';
 import './common/i18next';
 import './index.scss';
