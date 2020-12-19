@@ -7,9 +7,7 @@ const Footer = () => {
       {/** To the right **/}
       <div className="float-right d-none d-sm-inline">Anything you want</div>
       {/** Default to the left **/}
-      <strong>
-        Copyright &copy; All rights reserved.
-        </strong>
+      <strong>Copyright &copy; All rights reserved.</strong>
     </footer>
   );
 };

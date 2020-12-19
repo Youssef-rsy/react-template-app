@@ -1,10 +1,12 @@
 import React, { Fragment } from 'react';
 import './SideBar.scss';
+import { useTranslation } from 'react-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Logo from './../../../assets/adminTemplateLogo.png';
 import { Link, NavLink } from 'react-router-dom';
 
 const SideBar = (props) => {
+  const { t } = useTranslation();
   return (
     <aside
       className={
@@ -19,7 +21,7 @@ const SideBar = (props) => {
           alt="React Template App Logo"
           className="brand-image  rounded-circle elevation-3"
         />
-        <span className="brand-text font-weight-light">Admin Template</span>
+        <span className="brand-text font-weight-light">{t('app-title')}</span>
       </a>
       {/** Sidebar **/}
       <div className="sidebar">
@@ -28,41 +30,63 @@ const SideBar = (props) => {
         {/** Sidebar menu **/}
         <nav className="navbar-nav w-100 p-2">
           <li className="w-100">
-            <NavLink to="/" exact={true}
+            <NavLink
+              to="/"
+              exact={true}
               className="nav-item nav-link w-100 d-flex flex-row px-1"
-              activeClassName="active ">
+              activeClassName="active "
+            >
               <FontAwesomeIcon
-                icon="check-square"
+                icon="tachometer-alt"
                 className="nav-icon d-flex align-self-center"
               />
               <p className="d-flex flex-row ml-2 mb-0 w-100 justify-content-between ">
-                <span>Dashboard</span>
+                <span>{t('sideBar.menu.dashboard')}</span>
               </p>
             </NavLink>
           </li>
           <li className="w-100">
-            <NavLink to="/profil"
+            <NavLink
+              to="/profil"
               className="nav-item nav-link w-100 d-flex flex-row px-1"
-              activeClassName="active ">
+              activeClassName="active "
+            >
               <FontAwesomeIcon
-                icon="check-square"
+                icon="user-circle"
                 className="nav-icon d-flex align-self-center"
               />
               <p className="d-flex flex-row ml-2 mb-0 w-100 justify-content-between ">
-                <span>Profil</span>
+                <span>{t('sideBar.menu.profil')}</span>
               </p>
             </NavLink>
           </li>
           <li className="w-100">
-            <NavLink to="/setting"
+            <NavLink
+              to="/users"
               className="nav-item nav-link w-100 d-flex flex-row px-1"
-              activeClassName="active ">
+              activeClassName="active "
+            >
               <FontAwesomeIcon
-                icon="check-square"
+                icon="users-cog"
                 className="nav-icon d-flex align-self-center"
               />
               <p className="d-flex flex-row ml-2 mb-0 w-100 justify-content-between ">
-                <span>Setting</span>
+                <span>{t('sideBar.menu.users.users')}</span>
+              </p>
+            </NavLink>
+          </li>
+          <li className="w-100">
+            <NavLink
+              to="/setting"
+              className="nav-item nav-link w-100 d-flex flex-row px-1"
+              activeClassName="active "
+            >
+              <FontAwesomeIcon
+                icon="cog"
+                className="nav-icon d-flex align-self-center"
+              />
+              <p className="d-flex flex-row ml-2 mb-0 w-100 justify-content-between ">
+                <span>{t('sideBar.menu.setting')}</span>
               </p>
             </NavLink>
           </li>
@@ -152,7 +176,8 @@ const SideBar = (props) => {
               </ul>
             </li>
           </ul>
-        */}<div
+        */}
+          <div
             className="collapse d-flex flex-column"
             id="collapseExample2"
           ></div>

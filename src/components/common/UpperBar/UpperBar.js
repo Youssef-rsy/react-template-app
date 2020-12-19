@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import faker from "faker";
+import faker from 'faker';
 import DropDownItem from '../../shared/DropdownItem/DropDownItem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import User from './../../../assets/user.png';
@@ -8,10 +8,16 @@ import constants from './../../../utilities/constants/constants';
 import './UpperBar.scss';
 
 const UpperBar = (props) => {
-  const { name: { firstName, lastName } } = faker;
+  const {
+    name: { firstName, lastName },
+  } = faker;
   const { t } = useTranslation();
   return (
-    <nav className={`upperbar  ${props.showMenu ? 'with-menu-bar' : 'without-menu-bar'} navbar navbar-expand navbar-light  `}>
+    <nav
+      className={`upperbar  ${
+        props.showMenu ? 'with-menu-bar' : 'without-menu-bar'
+      } navbar navbar-expand navbar-light  `}
+    >
       {/** Left navbar links **/}
       <ul className="navbar-nav">
         <li className="nav-item p-0">

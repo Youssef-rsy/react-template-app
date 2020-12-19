@@ -4,8 +4,10 @@ import { NavLink } from 'react-router-dom';
 
 const DropDownItem = (props) => {
   return (
-    <NavLink to={props.href}
-      className="d-flex justify-content-begin dropdown-item dropdown-item px-3">
+    <NavLink
+      to={props.href}
+      className="d-flex justify-content-begin dropdown-item dropdown-item px-3"
+    >
       <FontAwesomeIcon
         icon={props.icon}
         className="nav-icon d-flex align-self-center"

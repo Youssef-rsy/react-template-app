@@ -4,9 +4,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const appDirectory = fs.realpathSync(process.cwd());
-const resolveAppPath = relativePath => path.resolve(appDirectory, relativePath);
+const resolveAppPath = relativePath => (path.resolve(appDirectory, relativePath));
 const host = process.env.HOST || 'localhost';
-
 
 module.exports = {
     entry: './src/index.js',
@@ -57,7 +56,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            favicon: resolveAppPath("public/home.ico"),
+            favicon: resolveAppPath('public/home.ico'),
             inject: true,
             template: resolveAppPath('public/index.html'),
         }),

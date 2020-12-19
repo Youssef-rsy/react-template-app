@@ -1,2 +1,2 @@
 import './OpenSans-SemiBold.ttf';
-import './Roboto-Regular.ttf'; 
+import './Roboto-Regular.ttf';

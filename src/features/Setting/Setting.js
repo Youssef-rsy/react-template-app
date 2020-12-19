@@ -50,9 +50,7 @@ const Setting = (props) => {
                 <div className="card-text">
                   <form>
                     <div className="col-12 form-group">
-                      <label>
-                        {t('setting.language.setLanguageLabel')}
-                      </label>
+                      <label>{t('setting.language.setLanguageLabel')}</label>
                       <Select
                         onChange={changeLG}
                         defaultValue={options.filter(

@@ -1,10 +1,21 @@
 {
+    "app-title": "React Admin",
     "upperBar" : {
         "user" : {
             "profil":"Mon Profile",
             "setting":"Paramétrage",
             "support":"Support",
             "logout":"Déconnecter"
+        }
+    },
+    "sideBar" : {
+        "menu" : {
+            "dashboard":"Tableau de Board",
+            "profil":"Mom Profile",
+            "setting":"Paramétrage",
+            "users":{
+                "users":"Utilisateurs"
+            }
         }
     },
     "setting":{

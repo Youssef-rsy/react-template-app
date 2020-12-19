@@ -1,10 +1,21 @@
 {
+    "app-title": "React Admin",
     "upperBar" : {
         "user" : {
             "profil":"My Profile",
             "setting":"Setting",
             "support":"Support",
             "logout":"Logout"
+        }
+    },
+    "sideBar" : {
+        "menu" : {
+            "dashboard":"Dashboard",
+            "profil":"My Profile",
+            "setting":"Setting",
+            "users":{
+                "users":"Users"
+            }
         }
     },
     "setting":{
