@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getAllUsers, findUser } from './Action';
 
@@ -58,6 +59,16 @@ class Users extends Component {
     );
   }
 }
+
+Users.propTypes = {
+  users: PropTypes.array,
+  getAll: PropTypes.func
+};
+
+Users.defaultProps = {
+  users: [],
+  getAll: () => console.log('getAll default val'),
+};
 
 const mapStateToProps = (state) => {
   return {
