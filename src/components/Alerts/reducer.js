@@ -1,13 +1,14 @@
 /* ************************************* */
 /* ********       IMPORTS       ******** */
 /* ************************************* */
-//import * as types from './types';
+import types from './ActionTypes';
 
 /* ************************************* */
 /* ********      VARIABLES      ******** */
 /* ************************************* */
 const initialState = {
-  reduxUp: false,
+    show: false,
+    entity: ''
 };
 
 /* ************************************* */
@@ -29,14 +30,22 @@ export default reducer;
  * @param action
  */
 function reducer(state = initialState, action) {
-  switch (action.type) {
-    case 'REDUX_FULFILLED': {
-      return {
-        ...state,
-        reduxUp: action.payload.body(false).reduxUp,
-      };
+    switch (action.type) {
+        case types.SHOW_ALERT: {
+            console.log('in alert reducer');
+            return {
+                ...state,
+                show: true,
+            }
+        }
+        case types.HIDE_ALERT: {
+            console.log('in alert reducer');
+            return {
+                ...state,
+                show: false,
+            }
+        }
+        default:
+            return state;
     }
-    default:
-      return state;
-  }
 }

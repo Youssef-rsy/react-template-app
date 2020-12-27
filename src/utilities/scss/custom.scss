@@ -599,6 +599,25 @@ a:not([href]):hover {
 .card-header {
   color: $primary;
   background-color: transparent !important;
+  padding: 0.75rem 1rem;
+}
+
+.card-header-collapse[aria-expanded="false"]::before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f106";
+    display: inline-block;
+    padding-right: 3px;
+    vertical-align: middle;
+    font-weight: 900;
+}
+
+.card-header-collapse[aria-expanded="true"]:before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f107";
+  display: inline-block;
+  padding-right: 3px;
+  vertical-align: middle;
+  font-weight: 900;
 }
 
 [class*="sidebar-dark"] .brand-link {

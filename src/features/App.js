@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import './App.scss';
-import UpperBar from '../components/common/upperbar/UpperBar';
-import SideBar from '../components/common/sidebar/SideBar';
-import ContentHeader from '../components/common/contentHeader/ContentHeader';
+import UpperBar from '../components/UpperBar/UpperBar';
+import SideBar from '../components/SideBar/SideBar';
+import ContentHeader from '../components/ContentHeader/ContentHeader';
+import Alerts from './../components/Alerts/Alerts';
 import { Switch, Route } from 'react-router-dom';
 import Profil from './Profil/Profil';
 import Page from './page/Page';
 import Setting from './Setting/Setting';
 import Users from './user/Users/Users';
+import CreateUser from './user/CreateUser/CreateUser';
 
 class App extends Component {
   constructor(props) {
@@ -27,9 +29,9 @@ class App extends Component {
       <div className="wrapper">
         <SideBar show={this.state.showdata} />
         <UpperBar show={this.show} showMenu={this.state.showdata} />
-        <div
-          className={'content-wrapper ' + (this.state.showdata ? 'ml-0' : '')}
-        >
+        <div className={'content-wrapper ' + (this.state.showdata ? 'ml-0' : '')} >
+          <Alerts />
+
           <ContentHeader />
           <Switch>
             <Route path="/profil">
@@ -40,6 +42,9 @@ class App extends Component {
             </Route>
             <Route exact path="/users">
               <Users />
+            </Route>
+            <Route exact path="/create-user">
+              <CreateUser />
             </Route>
             <Route exact path="/">
               <Page />

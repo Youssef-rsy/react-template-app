@@ -1,5 +1,10 @@
 {
     "app-title": "React Admin",
+    "component":{
+        "alert":{
+            "success-operation":"Operation performed successfully"
+        }
+    },
     "upperBar" : {
         "user" : {
             "profil":"My Profile",
@@ -14,7 +19,9 @@
             "profil":"My Profile",
             "setting":"Setting",
             "users":{
-                "users":"Users"
+                "title":"Manage users",
+                "users":"Users list",
+                "createUser":"Add new user"
             }
         }
     },
@@ -85,5 +92,68 @@
             }
         },
         "changePassword":"Update password"
-    }
+    },
+    "users":{
+        "title":"Mange Users",
+        "users":{
+            "search":{
+                "title":"Search Criteria",
+                "id":{
+                    "name" : "id"
+                },
+                "name":{
+                    "label" : "Full name",
+                    "name" : "name",
+                    "palceholder" : "Enter a full name : youssef"
+                },
+                "email":{
+                    "label" : "Email Address",
+                    "name" : "email",
+                    "palceholder" : "Enter an email : name@mail.com"
+                },
+                "phoneNumber":{
+                    "label" : "Phone-Number",
+                    "name" : "phoneNumber",
+                    "palceholder" : "Enter a phone number :+2126584230"
+                },
+                "company":{
+                    "label" : "Company",
+                    "name" : "company",
+                    "palceholder" : "Enter a Company name"
+                },
+                "submit":"Submit",
+                "reset":"Reset",
+                "searchResult":"Search result",
+                "searchCirteria":"Searched criteria :",
+                "table":{
+                    "name":"Full name",
+                    "email":"Email",
+                    "phoneNumber":"Phone Number",
+                    "address":"Address",
+                    "company":"Company",
+                    "operation":"Operation"
+                },
+                "modal":{
+                    "delete":{
+                        "title":"Delete user",
+                        "description":"The operation will permanently delete the user",
+                        "agree":"Yes, delete",
+                        "deny":" No, back to the list"
+                    },
+                    "update":{
+                        "title":"Update User"
+                    }
+
+                }
+            }
+        }
+    },
+    "form":{
+        "validation":{
+          "required":"Required",
+          "number":"Must be a number",
+          "phoneNumber":"Invalid phone number, must be 10 digits",
+          "email":"Adresse e-mail invalide"
+        }
+      }
 }

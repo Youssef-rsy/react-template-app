@@ -1,4 +1,4 @@
-@import './../../../utilities/scss/variables';
+@import './../../utilities/scss/variables';
 
 
 aside{
@@ -12,7 +12,7 @@ aside{
 
 .main-header {
     transition: margin-left .3s ease-in-out;
-    margin-left: 250px;
+    margin-left: 220px;
 }
 
 :not(.layout-fixed) .main-sidebar {

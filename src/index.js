@@ -11,16 +11,18 @@ import './common/i18next';
 import './index.scss';
 import App from './features/App';
 import './utilities/font-awsome/font-awsome';
+import LoadingSpinner from './components/LoadingSpinner/LoadingSpinner.js';
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <Suspense fallback={<div>Loading ……</div>}>
+      <Suspense fallback={<LoadingSpinner />}>
         <BrowserRouter>
           <App />
         </BrowserRouter>
       </Suspense>
     </Provider>
+    ,
   </React.StrictMode>,
   document.getElementById('root')
 );

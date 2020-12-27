@@ -1,60 +1,250 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getAllUsers, findUser } from './Action';
+import { withTranslation } from 'react-i18next';
+import isEmpty from 'lodash.isempty';
+import {
+  getAllUsers,
+  searchForUsers,
+  deleteUser,
+  updateUser,
+  getUser,
+} from './Action';
+import './Users.scss';
+import UserFrom from '../../../components/forms/UserFrom';
+import UserUpdateFrom from '../../../components/forms/UserUpdateFrom';
+import LoadingSpinner from '../../../components/LoadingSpinner/LoadingSpinner';
+import UserTable from '../../../components/UsersTable';
 
 class Users extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      searchCriteria: {},
+    };
+    this.searchForUser = this.searchForUser.bind(this);
+    this.updateUserData = this.updateUserData.bind(this);
   }
 
   componentDidMount() {
-    this.getUsers(10, 1);
+    this.getUsers(20, 1);
   }
 
   getUsers(perPage, page) {
     this.props.getAll(perPage, page);
   }
 
-  render() {
-    const { users } = this.props;
+  searchForUser(value) {
+    const { search } = this.props;
+    this.setState({
+      ...this.state,
+      searchCriteria: value,
+    });
+    search(value);
+  }
+
+  updateUserData(value) {
+    const { updateUser } = this.props;
+    updateUser(value);
+  }
+
+  renderSearchForm(t) {
     return (
-      <div className="container-fluid bg-white">
-        <div className="row">
-          <div className="col-12 mt-2">
-            <table className="table p-2">
-              <thead>
-                <tr>
-                  <th scope="col">Name</th>
-                  <th scope="col">Email</th>
-                  <th scope="col">Phone Number</th>
-                  <th scope="col">Address</th>
-                  <th scope="col">Company</th>
-                  <th scope="col">Operation</th>
-                </tr>
-              </thead>
-              <tbody>
-                {users.map((user) => (
-                  <tr key={user.id}>
-                    {/* <th scope="row">{user.id}</th> */}
-                    <td>{user.name}</td>
-                    <td>{user.email}</td>
-                    <td>{user.phoneNumber}</td>
-                    <td>
-                      {user.address.city
-                        .concat(' ')
-                        .concat(user.address.state)
-                        .concat(',')
-                        .concat(user.address.country)}
-                    </td>
-                    <td>{user.company.name}</td>
-                    <td></td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+      <div className="my-2">
+        <UserFrom form="userSearch" onSubmit={this.searchForUser} t={t} />
+      </div>
+    );
+  }
+
+  renderSearchedCriteria(t) {
+    const {
+      searchCriteria: { name, email, company, phoneNumber },
+    } = this.state;
+
+    return (
+      <div className=" my-2">
+        <div className="d-flex flex-column ">
+          {!isEmpty(this.state.searchCriteria) && (
+            <div className="d-flex flex-row w-100 ml-2">
+              <div className=" col-md-10 d-flex flex-row ">
+                <span className="align-self-center">
+                  {t('users.users.search.searchCirteria')}
+                </span>
+                <span className="align-self-center">
+                  {name && (
+                    <strong className=" badge badge-success h-100 mx-1">
+                      {name}
+                    </strong>
+                  )}
+                  {email && (
+                    <strong className=" badge badge-success h-100  mx-1">
+                      {email}
+                    </strong>
+                  )}
+                  {phoneNumber && (
+                    <strong className=" badge badge-success h-100 mx-1">
+                      {phoneNumber}
+                    </strong>
+                  )}
+                  {company && (
+                    <strong className=" badge badge-success h-100 mx-1">
+                      {company}
+                    </strong>
+                  )}
+                </span>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    );
+  }
+
+  renderUsers() {
+    const { t, getUser, users } = this.props;
+    return (
+      <div className=" my-2">
+        <div className="card col-md-12 mt-2">
+          {this.renderSearchedCriteria(t)}
+          <div className="row card-body pt-0">
+            <UserTable users={users} t={t} getUser={getUser} />
+            {this.renderDeleteUserModal()}
+            {this.renderUpdateUserModal()}
           </div>
         </div>
+      </div>
+    );
+  }
+
+  renderDeleteUserModal() {
+    const { t, deleteUser, user } = this.props;
+    return (
+      <div
+        className="modal fade"
+        id="deleteUserModal"
+        tabIndex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div
+          className="modal-dialog modal-dialog-centered modal-lg"
+          role="document"
+        >
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title">{t('users.users.search.modal.delete.title')}</h5>
+              <button
+                type="button"
+                className="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div className="modal-body">
+              <p>
+                {t('users.users.search.modal.delete.description')}
+                <strong className=" mx-2 text-danger">{user.name}</strong>
+              </p>
+            </div>
+            <div className="modal-footer d-flex justify-content-between">
+              <button
+                type="button"
+                className="btn btn-primary "
+                data-dismiss="modal"
+                onClick={() => deleteUser(user.id)}
+              >
+                {t('users.users.search.modal.delete.agree')}
+              </button>
+              <button
+                type="button"
+                className="btn btn-secondary "
+                data-dismiss="modal"
+              >
+                {t('users.users.search.modal.delete.deny')}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  renderUpdateUserModal() {
+    const { t, user } = this.props;
+    console.log("user :", user);
+    return (
+      <div
+        className="modal fade"
+        id="updateUserModal"
+        tabIndex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div
+          className="modal-dialog modal-dialog-centered modal-lg"
+          role="document"
+        >
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title">{t('users.users.search.modal.update.title')}</h5>
+              <button
+                type="button"
+                className="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div className="modal-body">
+              <UserUpdateFrom
+                form="updateUser"
+                onSubmit={this.updateUserData}
+                t={t}
+                initialValues={user}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  renderSearchResultSummary(usersSize) {
+    const { t } = this.props;
+    return (
+      <h6 className="d-flex flex-row ">
+        {t('users.users.search.searchResult')}{' '}
+        <span className="badge badge-primary">{usersSize}</span>
+      </h6>
+    );
+  }
+
+  render() {
+    const {
+      t,
+      loading,
+      users,
+      handleSubmit,
+      pristine,
+      reset,
+      submitting,
+    } = this.props;
+    return (
+      <div className="container-fluid ">
+        {this.renderSearchForm(t, handleSubmit, pristine, reset, submitting)}
+        {loading ? (
+          <LoadingSpinner />
+        ) : (
+            <Fragment>
+              {this.renderSearchResultSummary(users.length)}
+              {this.renderUsers()}
+            </Fragment>
+          )}
       </div>
     );
   }
@@ -62,24 +252,39 @@ class Users extends Component {
 
 Users.propTypes = {
   users: PropTypes.array,
-  getAll: PropTypes.func
+  user: PropTypes.object,
+  loading: PropTypes.bool,
+  getAll: PropTypes.func,
+  search: PropTypes.func,
+  deleteUser: PropTypes.func,
+  updateUser: PropTypes.func,
 };
 
 Users.defaultProps = {
   users: [],
-  getAll: () => console.log('getAll default val'),
+  loading: false,
+  getAll: () => console.log('get all users'),
+  search: () => console.log('searh for users'),
+  deleteUser: () => console.log('delete user'),
+  updateUser: () => console.log('update user'),
+  getUser: () => console.log('get a single user'),
 };
 
 const mapStateToProps = (state) => {
   return {
-    ...state.appReducers.users,
+    users: state.appReducers.users.users,
+    user: state.appReducers.users.user,
+    loading: state.appReducers.users.loading,
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    getAll: (perPage, page) => dispatch(getAllUsers(perPage, page)),
-  };
-};
+const mapDispatchToProps = (dispatch) => ({
+  getAll: (perPage, page) => dispatch(getAllUsers(perPage, page)),
+  search: (criteria) => dispatch(searchForUsers(criteria)),
+  deleteUser: (userId) => dispatch(deleteUser(userId)),
+  updateUser: (user) => dispatch(updateUser(user)),
+  getUser: (userId) => dispatch(getUser(userId)),
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(Users);
+Users = connect(mapStateToProps, mapDispatchToProps)(Users);
+export default withTranslation()(Users);

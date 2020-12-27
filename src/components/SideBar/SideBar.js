@@ -1,9 +1,9 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import './SideBar.scss';
 import { useTranslation } from 'react-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Logo from './../../../assets/adminTemplateLogo.png';
-import { Link, NavLink } from 'react-router-dom';
+import Logo from './../../assets/adminTemplateLogo.png';
+import { NavLink } from 'react-router-dom';
 
 const SideBar = (props) => {
   const { t } = useTranslation();
@@ -28,7 +28,7 @@ const SideBar = (props) => {
         {/** Sidebar user panel (optional) **/}
 
         {/** Sidebar menu **/}
-        <nav className="navbar-nav w-100 p-2">
+        <nav className="navbar-nav w-100 pt-2">
           <li className="w-100">
             <NavLink
               to="/"
@@ -60,21 +60,53 @@ const SideBar = (props) => {
               </p>
             </NavLink>
           </li>
-          <li className="w-100">
-            <NavLink
-              to="/users"
-              className="nav-item nav-link w-100 d-flex flex-row px-1"
-              activeClassName="active "
-            >
-              <FontAwesomeIcon
-                icon="users-cog"
-                className="nav-icon d-flex align-self-center"
-              />
-              <p className="d-flex flex-row ml-2 mb-0 w-100 justify-content-between ">
-                <span>{t('sideBar.menu.users.users')}</span>
-              </p>
-            </NavLink>
-          </li>
+          <ul className="navbar-nav w-100">
+            <li className="w-100">
+              <a
+                className="nav-item nav-link nav-item-parent  w-100 d-flex flex-row px-1"
+                data-toggle="collapse"
+                href="#collapseExample1"
+                role="button"
+                aria-expanded="false"
+                aria-controls="collapseExample"
+              >
+                <FontAwesomeIcon
+                  icon="users-cog"
+                  className="nav-icon d-flex align-self-center"
+                />
+                <span className="d-flex flex-row ml-2 mb-0 w-100 justify-content-between ">
+                  {t('sideBar.menu.users.title')}
+                </span>
+              </a>
+            </li>
+            <li className="collapse" id="collapseExample1">
+              <ul>
+                <li className="nav-item ">
+                  <NavLink to="/create-user" className="nav-item nav-link w-100 d-flex flex-row px-1" activeClassName="active " >
+                    <FontAwesomeIcon icon="user-plus" className="nav-icon d-flex align-self-center" />
+                    <p className="d-flex flex-row ml-2 mb-0 w-100 justify-content-between ">
+                      <span>{t('sideBar.menu.users.createUser')}</span>
+                    </p>
+                  </NavLink>
+                </li>
+                <li className="nav-item active">
+                  <NavLink
+                    to="/users"
+                    className="nav-item nav-link w-100 d-flex flex-row px-1"
+                    activeClassName="active "
+                  >
+                    <FontAwesomeIcon
+                      icon="users"
+                      className="nav-icon d-flex align-self-center"
+                    />
+                    <p className="d-flex flex-row ml-2 mb-0 w-100 justify-content-between ">
+                      <span>{t('sideBar.menu.users.users')}</span>
+                    </p>
+                  </NavLink>
+                </li>
+              </ul>
+            </li>
+          </ul>
           <li className="w-100">
             <NavLink
               to="/setting"

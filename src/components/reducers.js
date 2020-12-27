@@ -1,9 +1,9 @@
 import React from 'react';
 import { combineReducers } from 'redux';
-import users from './user/Users/reducer';
+import alert from './Alerts/reducer';
 
 const reducers = combineReducers({
-  users,
+  alert,
 });
 
 export default reducers;

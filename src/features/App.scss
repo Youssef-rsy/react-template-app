@@ -34,6 +34,7 @@
 /* Works on Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
   width: 6px;
+  height: 6px;
 }
 
 *::-webkit-scrollbar-track {
@@ -69,13 +70,13 @@ body,
 }
 
 .content{
-  background-color: #fAfAfA;
+  background-color: #F5F8FB;
   padding: 10px 0 0 0;
   border-radius: 19px 19px 0 0;
 }
 
 .content-wrapper {
-  background-color: #fAfAfA;
+  background-color: #F5F8FB;
   margin-left: 250px;
   transition: margin-left 0.1s ease-in-out;
 }

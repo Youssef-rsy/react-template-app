@@ -1,7 +1,12 @@
 import React from 'react';
-import DisplayInfos from '../../components/shared/DisplayInfos/DisplayInfos';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import DisplayInfos from '../../components/DisplayInfos/DisplayInfos';
 import { useTranslation } from 'react-i18next';
+import { changeUserPassword } from './Action';
 import faker from 'faker';
+
+import ChangePasswordForm from './ChangePasswordForm';
 
 const Profil = () => {
   const {
@@ -26,6 +31,13 @@ const Profil = () => {
     );
   };
 
+  const changePassword = (value) => {
+    const { changeUserPassword } = props;
+    const { password } = value;
+    changeUserPassword(userId, password);
+  }
+
+
   return (
     <div className="content">
       <div className="container-fluid">
@@ -45,9 +57,26 @@ const Profil = () => {
               </div>
               <div className="rta-hr"></div>
               <div className="card-body ">
-                <a href="#" className="btn btn-outline-primary ">
+                <a href="#" className="btn btn-outline-primary " data-toggle="modal" data-target="#exampleModal">
                   {t('profil.changePassword')}
                 </a>
+              </div>
+            </div>
+          </div>
+          <div className="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal-dialog modal-dialog-centered" role="document">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h5 className="modal-title" id="exampleModalLabel">Update Password</h5>
+                  <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+
+                <div className="modal-body">
+                  <ChangePasswordForm onSubmit={changePassword} />
+                </div>
+
               </div>
             </div>
           </div>
@@ -147,4 +176,20 @@ const Profil = () => {
     </div>
   );
 };
-export default Profil;
+
+Profil.prototype = {
+  user: PropTypes.object,
+  changeUserpassword: PropTypes.func
+}
+
+Profil.defaultProps = {
+  user: {},
+  changeUserPassword: () => console.log('change Password function'),
+}
+
+const mapStaateToProps = state => ({
+});
+const mapDispatchToProps = (dispatch) => ({
+  changeUserPassword: (userId, newPassword) => dispatch(changeUserPassword(userId, newPassword)),
+})
+export default connect(mapStaateToProps, mapDispatchToProps)(Profil);

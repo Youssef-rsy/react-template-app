@@ -1,5 +1,10 @@
 {
     "app-title": "React Admin",
+    "component":{
+        "alert":{
+            "success-operation":"Opération effectué avec succès"
+        }
+    },
     "upperBar" : {
         "user" : {
             "profil":"Mon Profile",
@@ -14,7 +19,9 @@
             "profil":"Mom Profile",
             "setting":"Paramétrage",
             "users":{
-                "users":"Utilisateurs"
+                "title":"Gestion des Utilistateurs",
+                "users":"List des utilisateurs",
+                "createUser":"Nouveau Utilisateur"
             }
         }
     },
@@ -85,5 +92,68 @@
             }
         },
         "changePassword":"Modifier le mot de passe"
-    }
+    },
+    "users":{
+        "title":"Gestion des Utilistateurs",
+        "users":{
+            "search":{
+                "title":"Critére de recherche",
+                "id":{
+                    "name" : "id"
+                },
+                "name":{
+                    "label" : "Nom Complet",
+                    "name" : "name",
+                    "palceholder" : "Saisir un nom"
+                },
+                "email":{
+                    "label" : "Adresse mail",
+                    "name" : "email",
+                    "palceholder" : "Saisir un email : name@mail.com"
+                },
+                "phoneNumber":{
+                    "label" : "Téléphone",
+                    "name" : "phoneNumber",
+                    "palceholder" : "Saisir un numero de télephone :+2126584230"
+                },
+                "company":{
+                    "label" : "Entreprise",
+                    "name" : "company",
+                    "palceholder" : "Saisir un nom d'entreprise"
+                },
+                "submit":"Rechercher",
+                "reset":"Réinitialiser",
+                "searchResult":"Resultat de recherche ",
+                "searchCirteria":"Critere de recherche :",
+                "table":{
+                    "name":"Nom complet",
+                    "email":"Email",
+                    "phoneNumber":"Téléphone",
+                    "address":"Adresse",
+                    "company":"Entreprise",
+                    "operation":"Operation"
+                },
+                "modal":{
+                    "delete":{
+                        "title":"Supprimer l'utilisateur",
+                        "description":"L'operation aura pour effet de supprimer définitivement l'utilistateur",
+                        "agree":"Oui, supprimer",
+                        "deny":" Non, retour à la list"
+                    },
+                    "update":{
+                        "title":"Supprimer l'utilisateur"
+                    }
+
+                }
+            }
+        }
+    },
+    "form":{
+        "validation":{
+          "required":"Champs Obligatoire",
+          "number":"Doit être un nombre",
+          "phoneNumber":"Numéro de téléphone non valide, doit comporter 10 chiffres",
+          "email":"Invalid email address"
+        }
+      }
 }

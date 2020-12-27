@@ -22,15 +22,21 @@ export default {
         },
       });
     },
-    getUserById(params) {
-      return userApiClient.get('', {
+    findUserByCriteria(perPage, page, criteria) {
+      console.dir(criteria);
+      return userApiClient.get('/list', {
         params: {
-          ...params,
+          limit: perPage,
+          page,
+          ...criteria,
         },
       });
     },
-    updateUser(userId, payload) {
-      return userApiClient.put('/create ', {});
+    getUserById(userId) {
+      return userApiClient.get(`/${userId}`);
+    },
+    updateUser(user) {
+      return userApiClient.put('/create ', { user });
     },
     deleteUserById(userId) {
       return userApiClient.delete(`/${userId}`);

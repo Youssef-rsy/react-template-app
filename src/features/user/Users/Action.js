@@ -1,41 +1,34 @@
 import types from './ActionTypes';
 import userApi from './../../../utilities/services/UserApi';
 
-export function findUser(id) {
-  console.log('findUser : ', id);
+
+export function createUser(user) {
   return {
-    type: types.FIND_USER,
-    payload: { id: '10', name: 'ysf' },
+    type: types.CREATE_USER,
+    payload: userApi.user.createUser(user),
   };
 }
 
-// function getAllUsers() {
-//     return function (dispatch) {
-//         return dispatch({
-//             type: types.GET_USERS,
-//             payload: [{ id: "10", name: "ysf" }, { id: "11", name: "rsy" }]
-//         });
-//     };
-// }
+export const getAllUsers = (perPage, page) => ({
+  type: types.GET_USERS,
+  payload: userApi.user.gellAllUser(perPage, page),
+});
+export const getUser = userId => ({
+  type: types.FIND_USER,
+  payload: userApi.user.getUserById(userId),
+});
 
-export const getAllUsers = (perPage, page) => {
-  console.log('in action');
-  return {
-    type: types.GET_USERS,
-    payload: userApi.user.gellAllUser(perPage, page),
-  };
-};
+export const searchForUsers = criteria => ({
+  type: types.FIND_USERS,
+  payload: userApi.user.findUserByCriteria(10, 1, criteria),
+});
 
-// export const getAllUsers = () => async dispatch => {
-//     const response = [{ id: "10", name: "ysf" }, { id: "11", name: "rsy" }];
-//     dispatch({ type: types.GET_USERS, payload: response });
-// };
-// export const getAllUsers = () => dispatch => {
-//     dispatch({ type: types.GET_USERS });
-// Api.getUsers()
-//     .then(response => response.json())
-//     .then(
-//         data => dispatch({ type: LOAD_USERS_SUCCESS, data }),
-//         error => dispatch({ type: LOAD_USERS_ERROR, error: error.message || 'Unexpected Error!!!' })
-//     )
-// };
+export const updateUser = user => ({
+  type: types.UPDATE_USER,
+  payload: userApi.user.updateUser(user),
+});
+
+export const deleteUser = userId => ({
+  type: types.DELETE_USER,
+  payload: userApi.user.deleteUserById(userId),
+});
