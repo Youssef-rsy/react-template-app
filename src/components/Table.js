@@ -1,6 +1,12 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useGlobalFilter, usePagination, useSortBy, useTable, useAsyncDebounce } from 'react-table';
+import { useGlobalFilter, usePagination, useSortBy, useTable, useAsyncDebounce, useExpanded, useRowSelect } from 'react-table';
+import { useExportData } from "react-table-plugins";
+import Papa from "papaparse";
+import XLSX from "xlsx";
+import JsPDF from "jspdf";
+import swal from "sweetalert";
+import "jspdf-autotable";
 
 const Table = (props) => {
   const { t, users, getUser } = props;
@@ -62,11 +68,99 @@ const Table = (props) => {
     ],
     []
   );
+
+  const IndeterminateCheckbox = React.forwardRef(
+    ({ indeterminate, ...rest }, ref) => {
+      const defaultRef = React.useRef()
+      const resolvedRef = ref || defaultRef
+
+      React.useEffect(() => {
+        resolvedRef.current.indeterminate = indeterminate
+      }, [resolvedRef, indeterminate])
+
+      return (
+        <>
+          <input type="checkbox" ref={resolvedRef} {...rest} />
+        </>
+      )
+    }
+  );
+  function getExportFileBlob({ columns, data, fileType, fileName }) {
+    if (fileType === "csv") {
+      // CSV example
+      const headerNames = columns.map((col) => col.exportValue);
+      const csvString = Papa.unparse({ fields: headerNames, data });
+      return new Blob([csvString], { type: "text/csv" });
+    } else if (fileType === "xlsx") {
+      // XLSX example
+
+      const header = columns.map((c) => c.exportValue);
+      const compatibleData = data.map((row) => {
+        const obj = {};
+        header.forEach((col, index) => {
+          obj[col] = row[index];
+        });
+        return obj;
+      });
+
+      let wb = XLSX.utils.book_new();
+      let ws1 = XLSX.utils.json_to_sheet(compatibleData, {
+        header,
+      });
+      XLSX.utils.book_append_sheet(wb, ws1, "React Table Data");
+      XLSX.writeFile(wb, `${fileName}.xlsx`);
+
+      // Returning false as downloading of file is already taken care of
+      return false;
+    }
+    //PDF example
+    if (fileType === "pdf") {
+      const headerNames = columns.map((column) => column.exportValue);
+      const doc = new JsPDF();
+      doc.autoTable({
+        head: [headerNames],
+        body: data,
+        margin: { top: 20 },
+        styles: {
+          minCellHeight: 9,
+          halign: "left",
+          valign: "center",
+          fontSize: 11,
+        },
+      });
+      doc.save(`${fileName}.pdf`);
+
+      return false;
+    }
+
+    // Other formats goes here
+    return false;
+  }
+  const BulkDelete = (selectedFlatRows, parent_action) => {
+    let selected_id = selectedFlatRows.map(data => {
+      return data.values._id
+    })
+    swal({
+      title: "Are you sure?",
+      text: "Once deleted, you will not be able to recover this data!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        console.log(selected_id);
+        swal("Data processed succesfuly", {
+          icon: "success",
+        });
+      }
+    });
+  }
   function GlobalFilter({
     preGlobalFilteredRows,
     globalFilter,
     setGlobalFilter,
-    allColumns
+    allColumns,
+    exportData
   }) {
     const count = preGlobalFilteredRows.length
     const [value, setValue] = React.useState(globalFilter)
@@ -91,12 +185,42 @@ const Table = (props) => {
           </div>
         </div>
         <div className="col-md-6 d-flex flex-row-reverse ">
-          <button class="btn  h-75 d-none" type="button" >
-            <FontAwesomeIcon
-              icon="trash-alt"
-              className="text-info"
-            />
-          </button>
+          {(Object.keys(selectedRowIds).length != 0) ?
+            <a class="btn  h-75" type="button"
+              onClick={() => {
+                BulkDelete(selectedFlatRows);
+              }}
+            > <FontAwesomeIcon
+                icon="trash-alt"
+                className="text-info"
+              />
+              <b className="mx-1">Delete{Object.keys(selectedRowIds).length} row </b>
+            </a> : ''}
+          <a class="btn  h-75 " type="button"
+            onClick={() => {
+              exportData("csv", true);
+            }}
+          >
+            <FontAwesomeIcon icon="file-csv" className="text-info" />
+          </a>
+
+          <a class="btn  h-75 " type="button"
+            onClick={() => {
+              exportData("xlsx", true);
+            }}
+          >
+            <FontAwesomeIcon icon="file-excel" className="text-info" />
+          </a>
+          <a class="btn  h-75 " type="button"
+            onClick={() => {
+              exportData("pdf", true);
+            }}
+          >
+            <FontAwesomeIcon icon="file-pdf" className="text-info" />
+          </a>
+
+
+
           <div class="dropdown  dropleft align-self-center">
             <a
               className=""
@@ -105,6 +229,7 @@ const Table = (props) => {
               id="dropdownColumnHide"
               aria-haspopup="true"
               aria-expanded="false"
+              class="btn  h-75"
             ><FontAwesomeIcon
                 icon="eye-slash"
                 className="text-info"
@@ -130,8 +255,32 @@ const Table = (props) => {
       </div >
     )
   }
-  const tableInstance = useTable({ columns, data, initialState: { pageIndex: 0, pageSize: 5 }, },
-    useGlobalFilter, useSortBy, usePagination);
+  const tableInstance = useTable({ columns, data, getExportFileBlob, initialState: { pageIndex: 0, pageSize: 5 }, },
+    useGlobalFilter, useSortBy, useExpanded, usePagination, useExportData, useRowSelect,
+    hooks => {
+      hooks.visibleColumns.push(columns => [
+        // Let's make a column for selection
+        {
+          id: 'selection',
+          // The header can use the table's getToggleAllRowsSelectedProps method
+          // to render a checkbox
+          Header: ({ getToggleAllPageRowsSelectedProps }) => (
+            <div>
+              <IndeterminateCheckbox {...getToggleAllPageRowsSelectedProps()} />
+            </div>
+          ),
+          // The cell can use the individual row's getToggleRowSelectedProps method
+          // to the render a checkbox
+          Cell: ({ row }) => (
+            <div>
+              <IndeterminateCheckbox {...row.getToggleRowSelectedProps()} />
+            </div>
+          ),
+        },
+        ...columns,
+      ])
+    }
+  );
   const {
     // global 
     getTableProps,
@@ -149,15 +298,19 @@ const Table = (props) => {
     nextPage,
     previousPage,
     setPageSize,
-    state: { pageIndex, pageSize, globalFilter },
+    selectedFlatRows,
+    state: { pageIndex, pageSize, selectedRowIds, globalFilter },
     // 
     preGlobalFilteredRows,
     setGlobalFilter,
+    //export
+    exportData,
   } = tableInstance;
 
   return (
     <div className="table-responsive-lg w-100">
-      <GlobalFilter allColumns={allColumns} preGlobalFilteredRows={preGlobalFilteredRows} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
+
+      <GlobalFilter exportData={exportData} allColumns={allColumns} preGlobalFilteredRows={preGlobalFilteredRows} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
       <table className="table table-striped  table-bordered px-2 " {...getTableProps()}>
         <caption>
           <nav class="nav nav-pills nav-fill felx-column justify-content-between">
