@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { renderInputField } from '../../utilities/form/formField';
@@ -22,6 +23,10 @@ const UserForm = (props) => {
         >
           <h6 className="d-flex align-self-center ml-1  ">
             {t('users.users.search.title')}
+            <FontAwesomeIcon
+              icon="filter"
+              className="d-flex align-self-begin "
+            />
           </h6>
         </a>
       </div>

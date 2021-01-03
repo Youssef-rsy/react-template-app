@@ -3,7 +3,7 @@ import './SideBar.scss';
 import { useTranslation } from 'react-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Logo from './../../assets/adminTemplateLogo.png';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const SideBar = (props) => {
   const { t } = useTranslation();
@@ -15,14 +15,14 @@ const SideBar = (props) => {
       }
     >
       {/** Brand Logo **/}
-      <a href="index3.html" className="brand-link">
+      <Link to="/" className="brand-link">
         <img
           src={Logo}
           alt="React Template App Logo"
           className="brand-image  rounded-circle elevation-3"
         />
         <span className="brand-text font-weight-light">{t('app-title')}</span>
-      </a>
+      </Link>
       {/** Sidebar **/}
       <div className="sidebar">
         {/** Sidebar user panel (optional) **/}

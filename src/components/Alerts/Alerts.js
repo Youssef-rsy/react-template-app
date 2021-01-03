@@ -8,7 +8,7 @@ const Alerts = props => {
     const { t } = useTranslation();
     const { show, hide } = props;
     return (
-        <div className={`alert alert-success alert-dismissible fade ${show ? 'show' : ' '}`} role="alert">
+        <div className={`alert alert-success alert-dismissible fade ${show ? 'd-block show' : ' d-none'}`} role="alert">
             {t('component.alert.success-operation')}
             <button type="button" className="close" onClick={() => hide()}>
                 <span >&times;</span>

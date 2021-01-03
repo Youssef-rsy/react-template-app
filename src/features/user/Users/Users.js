@@ -14,7 +14,7 @@ import './Users.scss';
 import UserFrom from '../../../components/forms/UserFrom';
 import UserUpdateFrom from '../../../components/forms/UserUpdateFrom';
 import LoadingSpinner from '../../../components/LoadingSpinner/LoadingSpinner';
-import UserTable from '../../../components/UsersTable';
+import Table from '../../../components/Table';
 
 class Users extends Component {
   constructor(props) {
@@ -27,7 +27,7 @@ class Users extends Component {
   }
 
   componentDidMount() {
-    this.getUsers(20, 1);
+    this.getUsers(50, 1);
   }
 
   getUsers(perPage, page) {
@@ -62,41 +62,39 @@ class Users extends Component {
     } = this.state;
 
     return (
-      <div className=" my-2">
-        <div className="d-flex flex-column ">
-          {!isEmpty(this.state.searchCriteria) && (
-            <div className="d-flex flex-row w-100 ml-2">
-              <div className=" col-md-10 d-flex flex-row ">
-                <span className="align-self-center">
-                  {t('users.users.search.searchCirteria')}
-                </span>
-                <span className="align-self-center">
-                  {name && (
-                    <strong className=" badge badge-success h-100 mx-1">
-                      {name}
-                    </strong>
-                  )}
-                  {email && (
-                    <strong className=" badge badge-success h-100  mx-1">
-                      {email}
-                    </strong>
-                  )}
-                  {phoneNumber && (
-                    <strong className=" badge badge-success h-100 mx-1">
-                      {phoneNumber}
-                    </strong>
-                  )}
-                  {company && (
-                    <strong className=" badge badge-success h-100 mx-1">
-                      {company}
-                    </strong>
-                  )}
-                </span>
-              </div>
-            </div>
-          )}
-        </div>
-      </div>
+      <>
+        {!isEmpty(this.state.searchCriteria) && (
+          <div className=" my-2 py-2 d-flex flex-row ml-2 border-bottom">
+            <dl className="d-flex flex-row  mb-0 ">
+              <dt className="align-self-center text-dark">
+                {t('users.users.search.searchCirteria')}
+              </dt>
+              <dd className="align-self-center">
+                {name && (
+                  <strong className=" badge badge-success h-100 mx-1">
+                    {name}
+                  </strong>
+                )}
+                {email && (
+                  <strong className=" badge badge-success h-100  mx-1">
+                    {email}
+                  </strong>
+                )}
+                {phoneNumber && (
+                  <strong className=" badge badge-success h-100 mx-1">
+                    {phoneNumber}
+                  </strong>
+                )}
+                {company && (
+                  <strong className=" badge badge-success h-100 mx-1">
+                    {company}
+                  </strong>
+                )}
+              </dd>
+            </dl>
+          </div>
+        )}
+      </>
     );
   }
 
@@ -104,10 +102,13 @@ class Users extends Component {
     const { t, getUser, users } = this.props;
     return (
       <div className=" my-2">
+
         <div className="card col-md-12 mt-2">
+
           {this.renderSearchedCriteria(t)}
+
           <div className="row card-body pt-0">
-            <UserTable users={users} t={t} getUser={getUser} />
+            <Table users={users} t={t} getUser={getUser} />
             {this.renderDeleteUserModal()}
             {this.renderUpdateUserModal()}
           </div>

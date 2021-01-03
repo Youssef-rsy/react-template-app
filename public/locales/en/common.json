@@ -3,6 +3,14 @@
     "component":{
         "alert":{
             "success-operation":"Operation performed successfully"
+        },
+        "table":{
+            "pagination":{
+                "show":"Show",
+                "page":"Page",
+                "of":"Of",
+                "goToPage":"Go to page"
+            }
         }
     },
     "upperBar" : {

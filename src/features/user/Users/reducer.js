@@ -11,6 +11,7 @@ const initialState = {
   users: [],
   user: {},
   loading: false,
+  errors: ''
 };
 
 /* ************************************* */
@@ -21,7 +22,18 @@ export default reducer;
 /* ************************************* */
 /* ********  PRIVATE FUNCTIONS  ******** */
 /* ************************************* */
-
+function mapUsers(users) {
+  const newUsers = users.map(user => ({
+    id: user.id,
+    name: user.name,
+    email: user.email,
+    phoneNumber: user.phoneNumber,
+    address: user.address.city.concat(' ').concat(user.address.state).concat(',').concat(user.address.country),
+    company: user.company.name
+  }));
+  console.log('map users :', newUsers);
+  return newUsers;
+}
 /* ************************************* */
 /* ********   PUBLIC FUNCTIONS  ******** */
 /* ************************************* */
@@ -34,7 +46,6 @@ export default reducer;
 function reducer(state = initialState, action) {
   switch (action.type) {
     case types.CREATE_USER_FULFILLED: {
-      console.log('action.payload :', action.payload);
       const users = state.users;
       const user = action.payload.data.data;
       users.push(user);
@@ -52,7 +63,22 @@ function reducer(state = initialState, action) {
     case types.GET_USERS_FULFILLED: {
       return {
         ...state,
-        users: action.payload.data.data.users,
+        users: mapUsers(action.payload.data.data.users),
+        loading: false,
+      };
+    }
+    case types.GET_USERS_REJECTED: {
+      console.log('---------------------->', action.payload);
+      return {
+        ...state,
+        loading: false,
+        errors: ''
+      };
+    }
+    case types.GET_USERS_FULFILLED: {
+      return {
+        ...state,
+        users: mapUsers(action.payload.data.data.users),
         loading: false,
       };
     }
@@ -65,9 +91,9 @@ function reducer(state = initialState, action) {
     case types.FIND_USERS_FULFILLED: {
       return {
         ...state,
-        users: action.payload.data.data.users.filter((user) =>
+        users: mapUsers(action.payload.data.data.users.filter((user) =>
           includes(user.email, 'gmail')
-        ),
+        )),
         loading: false,
       };
     }
