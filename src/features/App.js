@@ -6,7 +6,7 @@ import ContentHeader from '../components/ContentHeader/ContentHeader';
 import Alerts from './../components/Alerts/Alerts';
 import { Switch, Route } from 'react-router-dom';
 import Profil from './Profil/Profil';
-import Page from './page/Page';
+import Page from './DashBorad/DashBorad';
 import Setting from './Setting/Setting';
 import Users from './user/Users/Users';
 import CreateUser from './user/CreateUser/CreateUser';
