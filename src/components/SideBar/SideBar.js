@@ -3,9 +3,10 @@ import './SideBar.scss';
 import { useTranslation } from 'react-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Logo from './../../assets/adminTemplateLogo.png';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useRouteMatch } from 'react-router-dom';
 
 const SideBar = (props) => {
+  let { url } = useRouteMatch();
   const { t } = useTranslation();
   return (
     <aside
@@ -15,7 +16,7 @@ const SideBar = (props) => {
       }
     >
       {/** Brand Logo **/}
-      <Link to="/" className="brand-link">
+      <Link to={`${url}/dashboard`} className="brand-link">
         <img
           src={Logo}
           alt="React Template App Logo"
@@ -31,7 +32,7 @@ const SideBar = (props) => {
         <nav className="navbar-nav w-100 pt-2">
           <li className="w-100">
             <NavLink
-              to="/"
+              to={`${url}`}
               exact={true}
               className="nav-item nav-link w-100 d-flex flex-row px-1"
               activeClassName="active "
@@ -47,7 +48,7 @@ const SideBar = (props) => {
           </li>
           <li className="w-100">
             <NavLink
-              to="/profil"
+              to={`${url}/profil`}
               className="nav-item nav-link w-100 d-flex flex-row px-1"
               activeClassName="active "
             >
@@ -82,7 +83,7 @@ const SideBar = (props) => {
             <li className="collapse" id="collapseExample1">
               <ul>
                 <li className="nav-item ">
-                  <NavLink to="/create-user" className="nav-item nav-link w-100 d-flex flex-row px-1" activeClassName="active " >
+                  <NavLink to={`${url}/create-user`} className="nav-item nav-link w-100 d-flex flex-row px-1" activeClassName="active " >
                     <FontAwesomeIcon icon="user-plus" className="nav-icon d-flex align-self-center" />
                     <p className="d-flex flex-row ml-2 mb-0 w-100 justify-content-between ">
                       <span>{t('sideBar.menu.users.createUser')}</span>
@@ -91,7 +92,7 @@ const SideBar = (props) => {
                 </li>
                 <li className="nav-item active">
                   <NavLink
-                    to="/users"
+                    to={`${url}/users`}
                     className="nav-item nav-link w-100 d-flex flex-row px-1"
                     activeClassName="active "
                   >
@@ -109,7 +110,7 @@ const SideBar = (props) => {
           </ul>
           <li className="w-100">
             <NavLink
-              to="/setting"
+              to={`${url}/setting`}
               className="nav-item nav-link w-100 d-flex flex-row px-1"
               activeClassName="active "
             >

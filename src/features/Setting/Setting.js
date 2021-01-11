@@ -40,30 +40,28 @@ const Setting = (props) => {
     i18n.changeLanguage(newlanguage);
   };
   return (
-    <div className="content">
-      <div className="container-fluid">
-        <div className="row">
-          <div className="col-lg-12">
-            <div className="card">
-              <div className="card-body card-primary card-outline">
-                <h5 className="card-title">{t('setting.language.title')}</h5>
-                <div className="card-text">
-                  <form>
-                    <div className="col-12 form-group">
-                      <label>{t('setting.language.setLanguageLabel')}</label>
-                      <Select
-                        onChange={changeLG}
-                        defaultValue={options.filter(
-                          (option) => option.value === i18n.language
-                        )}
-                        options={options}
-                      />
-                      <small id="emailHelp" className="form-text text-muted ">
-                        {t('setting.language.comment')}
-                      </small>
-                    </div>
-                  </form>
-                </div>
+    <div className="container-fluid">
+      <div className="row">
+        <div className="col-lg-12">
+          <div className="card">
+            <div className="card-body card-primary card-outline">
+              <h5 className="card-title">{t('setting.language.title')}</h5>
+              <div className="card-text">
+                <form>
+                  <div className="col-12 form-group">
+                    <label>{t('setting.language.setLanguageLabel')}</label>
+                    <Select
+                      onChange={changeLG}
+                      defaultValue={options.filter(
+                        (option) => option.value === i18n.language
+                      )}
+                      options={options}
+                    />
+                    <small id="emailHelp" className="form-text text-muted ">
+                      {t('setting.language.comment')}
+                    </small>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
