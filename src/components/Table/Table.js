@@ -170,9 +170,9 @@ const Table = (props) => {
 
     return (
       <div className="d-flex flex-row justify-content-between pt-3">
-        <div class="row col-md-6 pb-1">
-          <label for="inputEmail3" class="col-sm-2 col-form-label pr-0">Search</label>
-          <div class="col-sm-6 pl-0">
+        <div className="row col-md-6 pb-1">
+          <label htmlFor="inputEmail3" className="col-sm-2 col-form-label pr-0">Search</label>
+          <div className="col-sm-6 pl-0">
             <input
               className="form-control "
               value={value || ""}
@@ -186,7 +186,7 @@ const Table = (props) => {
         </div>
         <div className="col-md-6 d-flex flex-row-reverse ">
           {(Object.keys(selectedRowIds).length != 0) ?
-            <a class="btn  h-75" type="button"
+            <a className="btn  h-75" type="button"
               onClick={() => {
                 BulkDelete(selectedFlatRows);
               }}
@@ -196,7 +196,7 @@ const Table = (props) => {
               />
               <b className="mx-1">Delete{Object.keys(selectedRowIds).length} row </b>
             </a> : ''}
-          <a class="btn  h-75 " type="button"
+          <a className="btn  h-75 " type="button"
             onClick={() => {
               exportData("csv", true);
             }}
@@ -204,14 +204,14 @@ const Table = (props) => {
             <FontAwesomeIcon icon="file-csv" className="text-info" />
           </a>
 
-          <a class="btn  h-75 " type="button"
+          <a className="btn  h-75 " type="button"
             onClick={() => {
               exportData("xlsx", true);
             }}
           >
             <FontAwesomeIcon icon="file-excel" className="text-info" />
           </a>
-          <a class="btn  h-75 " type="button"
+          <a className="btn  h-75 " type="button"
             onClick={() => {
               exportData("pdf", true);
             }}
@@ -221,7 +221,7 @@ const Table = (props) => {
 
 
 
-          <div class="dropdown  dropleft align-self-center">
+          <div className="dropdown  dropleft align-self-center">
             <a
               className=""
               href="#"
@@ -229,13 +229,13 @@ const Table = (props) => {
               id="dropdownColumnHide"
               aria-haspopup="true"
               aria-expanded="false"
-              class="btn  h-75"
+              className="btn  h-75"
             ><FontAwesomeIcon
                 icon="eye-slash"
                 className="text-info"
               />
             </a>
-            <div class="dropdown-menu" aria-labelledby="dropdownColumnHide">
+            <div className="dropdown-menu" aria-labelledby="dropdownColumnHide">
               {allColumns.map(column => {
                 if (column.id !== 'id') {
                   return (
@@ -313,7 +313,7 @@ const Table = (props) => {
       <GlobalFilter exportData={exportData} allColumns={allColumns} preGlobalFilteredRows={preGlobalFilteredRows} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
       <table className="table table-striped  table-bordered px-2 " {...getTableProps()}>
         <caption>
-          <nav class="nav nav-pills nav-fill felx-column justify-content-between">
+          <nav className="nav nav-pills nav-fill felx-column justify-content-between">
             <select className="custom-select col-md-3"
               defaultValue={pageSize}
               onChange={e => {
@@ -326,21 +326,21 @@ const Table = (props) => {
                 </option>
               ))}
             </select>
-            <div class="input-group-prepend col-md-3 d-flex justify-content-center  ">
+            <div className="input-group-prepend col-md-3 d-flex justify-content-center  ">
               <span className="  text-sm-center p-2 ">{t('component.table.pagination.page')} </span>
-              <strong class="text-sm-center h-100 p-2 ">
+              <strong className="text-sm-center h-100 p-2 ">
                 {pageIndex + 1} {t('component.table.pagination.of')}  {pageOptions.length}
               </strong>
             </div>
             <div className="col-md-5 d-flex flex-row  justify-content-between px-0">
               <div className="col-md-7">
-                <div class="input-group flex-row">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text text-sm-center" >{t('component.table.pagination.goToPage')} </span>
+                <div className="input-group flex-row">
+                  <div className="input-group-prepend">
+                    <span className="input-group-text text-sm-center" >{t('component.table.pagination.goToPage')} </span>
                   </div>
                   <input
                     type="number"
-                    class="form-control col-md-6"
+                    className="form-control col-md-6"
                     defaultValue={pageIndex + 1}
                     onChange={e => {
                       const page = e.target.value ? Number(e.target.value) - 1 : 0
@@ -350,10 +350,10 @@ const Table = (props) => {
                 </div>
               </div>
               <div className=" col-md-4 d-inline-flex ">
-                <button class="btn btn-outline-secondary" type="button" onClick={() => gotoPage(0)}><FontAwesomeIcon icon="angle-double-left" /></button>
-                <button class="btn btn-outline-secondary" type="button" onClick={() => previousPage()} disabled={!canPreviousPage}><FontAwesomeIcon icon="angle-left" /></button>
-                <button class="btn btn-outline-secondary" type="button" onClick={() => gotoPage(pageCount - 1)}><FontAwesomeIcon icon="angle-right" /></button>
-                <button class="btn btn-outline-secondary" type="button" onClick={() => nextPage()} disabled={!canNextPage} ><FontAwesomeIcon icon="angle-double-right" /></button>
+                <button className="btn btn-outline-secondary" type="button" onClick={() => gotoPage(0)}><FontAwesomeIcon icon="angle-double-left" /></button>
+                <button className="btn btn-outline-secondary" type="button" onClick={() => previousPage()} disabled={!canPreviousPage}><FontAwesomeIcon icon="angle-left" /></button>
+                <button className="btn btn-outline-secondary" type="button" onClick={() => gotoPage(pageCount - 1)}><FontAwesomeIcon icon="angle-right" /></button>
+                <button className="btn btn-outline-secondary" type="button" onClick={() => nextPage()} disabled={!canNextPage} ><FontAwesomeIcon icon="angle-double-right" /></button>
               </div>
             </div>
           </nav >

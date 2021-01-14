@@ -14,7 +14,7 @@ import './Users.scss';
 import UserFrom from '../../../components/forms/UserFrom';
 import UserUpdateFrom from '../../../components/forms/UserUpdateFrom';
 import LoadingSpinner from '../../../components/LoadingSpinner/LoadingSpinner';
-import Table from '../../../components/Table';
+import Table from '../../../components/Table/Table';
 
 class Users extends Component {
   constructor(props) {
@@ -230,14 +230,10 @@ class Users extends Component {
       t,
       loading,
       users,
-      handleSubmit,
-      pristine,
-      reset,
-      submitting,
     } = this.props;
     return (
       <div className="container-fluid ">
-        {this.renderSearchForm(t, handleSubmit, pristine, reset, submitting)}
+        {this.renderSearchForm(t)}
         {loading ? (
           <LoadingSpinner />
         ) : (

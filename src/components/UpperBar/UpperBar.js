@@ -14,9 +14,8 @@ const UpperBar = (props) => {
   const { t } = useTranslation();
   return (
     <nav
-      className={`upperbar  ${
-        props.showMenu ? 'with-menu-bar' : 'without-menu-bar'
-      } navbar navbar-expand navbar-light  `}
+      className={`upperbar  ${props.showMenu ? 'with-menu-bar' : 'without-menu-bar'
+        } navbar navbar-expand navbar-light  `}
     >
       {/** Left navbar links **/}
       <ul className="navbar-nav">

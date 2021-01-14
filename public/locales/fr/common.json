@@ -156,6 +156,11 @@
             }
         }
     },
+    "notFound":{
+        "title":"Page non trouvée",
+        "description":"vous voyez cette page, car vous avez essayé d'accéder à une page inexistante",
+        "action":"Retournez à la page d'accueil"
+    },
     "form":{
         "validation":{
           "required":"Champs Obligatoire",

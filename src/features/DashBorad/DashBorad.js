@@ -9,7 +9,7 @@ const DashBorad = (props) => {
   return <div className="container-fluid ">
     <div className="row row-cols-2 justify-content-around">
       <div className="col-md-6">
-        <div class="card  ">
+        <div className="card  ">
           <div className="card-header d-inline-flex py-1">
             <a
               data-toggle="collapse"
@@ -18,7 +18,7 @@ const DashBorad = (props) => {
               aria-controls="collapseExample"
               className="d-flex ml-1 w-100 card-header-collapse pt-1"
             >
-              <h6 class="card-title px-2">Bar Chart</h6>
+              <h6 className="card-title px-2">Bar Chart</h6>
             </a>
           </div>
           <div className=" card-body collapse show" id="collapseExample">
@@ -27,7 +27,7 @@ const DashBorad = (props) => {
         </div>
       </div>
       <div className="col-md-6">
-        <div class="card  ">
+        <div className="card  ">
           <div className="card-header d-inline-flex py-1">
             <a
               data-toggle="collapse"
@@ -36,7 +36,7 @@ const DashBorad = (props) => {
               aria-controls="collapseExample2"
               className="d-flex ml-1 w-100 card-header-collapse pt-1"
             >
-              <h6 class="card-title px-2">Pie Chart</h6>
+              <h6 className="card-title px-2">Pie Chart</h6>
             </a>
           </div>
           <div className=" card-body collapse show" id="collapseExample2">
@@ -46,7 +46,7 @@ const DashBorad = (props) => {
       </div>
 
       <div className="col-md-6">
-        <div class="card  ">
+        <div className="card  ">
           <div className="card-header d-inline-flex py-1">
             <a
               data-toggle="collapse"
@@ -55,7 +55,7 @@ const DashBorad = (props) => {
               aria-controls="collapseExample3"
               className="d-flex ml-1 w-100 card-header-collapse pt-1"
             >
-              <h6 class="card-title px-2">Doughnut Chart</h6>
+              <h6 className="card-title px-2">Doughnut Chart</h6>
             </a>
           </div>
           <div className=" card-body collapse show" id="collapseExample3">
@@ -64,7 +64,7 @@ const DashBorad = (props) => {
         </div>
       </div>
       <div className="col-md-6">
-        <div class="card  ">
+        <div className="card  ">
           <div className="card-header d-inline-flex py-1">
             <a
               data-toggle="collapse"
@@ -73,7 +73,7 @@ const DashBorad = (props) => {
               aria-controls="collapseExample"
               className="d-flex ml-1 w-100 card-header-collapse pt-1"
             >
-              <h6 class="card-title px-2">Polar Chart</h6>
+              <h6 className="card-title px-2">Polar Chart</h6>
             </a>
           </div>
           <div className=" card-body collapse show" id="collapseExample4">
@@ -82,7 +82,7 @@ const DashBorad = (props) => {
         </div>
       </div>
       <div className="col-md-12">
-        <div class="card  ">
+        <div className="card  ">
           <div className="card-header d-inline-flex py-1">
             <a
               data-toggle="collapse"
@@ -91,7 +91,7 @@ const DashBorad = (props) => {
               aria-controls="collapseExample"
               className="d-flex ml-1 w-100 card-header-collapse pt-1"
             >
-              <h6 class="card-title px-2">GroupedBar Chart</h6>
+              <h6 className="card-title px-2">GroupedBar Chart</h6>
             </a>
           </div>
           <div className=" card-body collapse show" id="collapseExample5">

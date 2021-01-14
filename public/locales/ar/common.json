@@ -1,0 +1,172 @@
+{
+    "app-title": "React Admin",
+    "component":{
+        "alert":{
+            "success-operation":"تمت العملية بنجاح"
+        },
+        "table":{
+            "pagination":{
+                "show":"عرض",
+                "page":"الصفحة",
+                "of":"من",
+                "goToPage":"انتقل إلى صفحة"
+            }
+        }
+    },
+    "upperBar" : {
+        "user" : {
+            "profil":"ملفي",
+            "setting":"ضبط",
+            "support":"الدعم",
+            "logout":"قطع الاتصال"
+        }
+    },
+    "sideBar" : {
+        "menu" : {
+            "dashboard":"لوحة القيادة",
+            "profil":"ملفي",
+            "setting":"ضبط",
+            "users":{
+                "title":"إدارةالمستخدم",
+                "users":"قائمة المستخدمين",
+                "createUser":"مستخدم جديد"
+            }
+        }
+    },
+    "setting":{
+        "title":"ضبط",
+        "language":{
+            "title":"لغة",
+            "setLanguageLabel":"تغيير لغة العرض:",
+            "comment":"سيكون تغيير اللغة فوريًا"
+        }
+    },
+    "profil":{
+        "personal":{
+            "title":"Personelle",
+            "firstName":{
+                "label" : "اسم العائلة",
+                "name" : "firstName"
+            },
+            "lastName":{
+                "label" : "الاسم الاول",
+                "name" : "lastName"
+            },
+            "gender":{
+                "label" : "الجنس",
+                "name" : "gender"
+            },
+            "birthDay":{
+                "label" : "تاريخ الميلاد",
+                "name" : "birthDay"
+            },
+            "address":{
+                "label" : "عنوان",
+                "name" : "personalAddress"
+            },
+            "phoneNumber":{
+                "label" : "هاتف",
+                "name" : "phoneNumber"
+            }
+        },
+        "professional":{
+            "title":"Profesionnelle",
+            "team":{
+                "label" : "الفريق",
+                "name" : "team"
+            },
+            "post":{
+                "label" : "بريد",
+                "name" : "post"
+            },
+            "status":{
+                "label" : "الحالة",
+                "name" : "status"
+            },
+            "integrationDate":{
+                "label" : "تاريخ الدمج",
+                "name" : "integrationDate"
+            }
+        },
+        "agency":{
+            "title":"وكالة",
+            "city":{
+                "label" : "مدينة",
+                "name" : "city"
+            },
+            "address":{
+                "label" : "عنوان",
+                "name" : "agencyAddress"
+            }
+        },
+        "changePassword":"تغيير كلمة السر"
+    },
+    "users":{
+        "title":"إدارةالمستخدم",
+        "users":{
+            "search":{
+                "title":"معايير البحث",
+                "id":{
+                    "name" : "id"
+                },
+                "name":{
+                    "label" : "الاسم بالكامل",
+                    "name" : "name",
+                    "palceholder" : "إدخال اسم"
+                },
+                "email":{
+                    "label" : "عنوان البريد الإلكتروني",
+                    "name" : "email",
+                    "palceholder" : "أدخل بريدًا إلكترونيًا: name@mail.com"
+                },
+                "phoneNumber":{
+                    "label" : "هاتف",
+                    "name" : "phoneNumber",
+                    "palceholder" : "أدخل رقم الهاتف: +2126584230"
+                },
+                "company":{
+                    "label" : "شركة",
+                    "name" : "company",
+                    "palceholder" : "أدخل اسم شركة"
+                },
+                "submit":"بحث",
+                "reset":"إعادة تعيين",
+                "searchResult":"نتيجة البحث ",
+                "searchCirteria":"معايير البحث :",
+                "table":{
+                    "name":"الاسم بالكامل",
+                    "email":"البريد الإلكتروني",
+                    "phoneNumber":"هاتف",
+                    "address":"عنوان",
+                    "company":"شركة",
+                    "operation":"عمليات"
+                },
+                "modal":{
+                    "delete":{
+                        "title":"مسح المستخدم",
+                        "description":"ستؤدي العملية إلى حذف المستخدم نهائيًا",
+                        "agree":"نعم ، احذف",
+                        "deny":" لا ، العودة إلى القائمة"
+                    },
+                    "update":{
+                        "title":"مسح المستخدم"
+                    }
+
+                }
+            }
+        }
+    },
+    "notFound":{
+        "title":"الصفحة غير موجودة",
+        "description":"أنت تشاهد هذه الصفحة لأنك حاولت الوصول إلى صفحة غير موجودة",
+        "action":"العودة إلى الصفحة الرئيسية"
+    },
+    "form":{
+        "validation":{
+          "required":"حقل اجباري",
+          "number":"يجب أن يكون رقما",
+          "phoneNumber":"رقم الهاتف غير صالح ، يجب أن يتكون من 10 أرقام",
+          "email":"عنوان بريد إلكتروني غير صالح"
+        }
+      }
+}

@@ -156,6 +156,11 @@
             }
         }
     },
+    "notFound":{
+        "title":"Page Not Found",
+        "description":"you're seeing this page because you tried to reach non-existent page",
+        "action":"Go back to home page"
+    },
     "form":{
         "validation":{
           "required":"Required",

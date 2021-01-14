@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import 'bootstrap/dist/js/bootstrap.min.js';
 
 import './utilities/fonts/fonts.js';
@@ -13,6 +13,7 @@ import App from './features/App';
 import './utilities/font-awsome/font-awsome';
 import LoadingSpinner from './components/LoadingSpinner/LoadingSpinner.js';
 import Login from './features/Login/Login.js';
+import NotFound from './components/404/NotFound.js';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -20,12 +21,10 @@ ReactDOM.render(
       <Suspense fallback={<LoadingSpinner />}>
         <BrowserRouter>
           <Switch>
-            <Route path={["/app", "/app/"]}>
-              < App />
-            </Route>
-            <Route exact path="/">
-              <Login />
-            </Route>
+            <Route path={["/app", "/app/"]} component={App} />
+            <Route exact path={["/", "/logout"]} component={Login} />
+            <Route exact path={"/404"} component={NotFound} />
+            <Redirect to="/404" />
           </Switch>
         </BrowserRouter>
       </Suspense>

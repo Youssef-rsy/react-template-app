@@ -2,28 +2,51 @@ const path = require('path');
 const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const appDirectory = fs.realpathSync(process.cwd());
 const resolveAppPath = relativePath => (path.resolve(appDirectory, relativePath));
 const host = process.env.HOST || 'localhost';
 
+
 module.exports = {
     entry: './src/index.js',
     mode: 'development',
     output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js',
-        chunkFilename: '[id].js',
-        publicPath: ''
+        path: resolveAppPath('dist'),
+        filename: 'js/[name].bundle.js',
+        chunkFilename: 'js/[id].js',
+        publicPath: '/'
     },
     resolve: {
-        extensions: ['.js', '.jsx'],
+        extensions: ['*', '.js', '.jsx'],
+        alias: {
+            '@': path.resolve(__dirname, 'src') // shortcut to reference src folder from anywhere
+        }
     },
     module: {
         rules: [
             {
+                test: /\.(json)$/,
+                use: [
+                    {
+                        loader: "file-loader",
+                        options: {
+                            name: "[folder]/[name].[ext]",
+                        }
+                    }
+                ]
+            },
+            {
                 test: /\.css$/,
-                use: [MiniCssExtractPlugin.loader, "style-loader", "css-loader"],
+                use: [MiniCssExtractPlugin.loader, "style-loader", {
+                    loader: 'css-loader',
+                    options: {
+                        modules: true,
+                        localsConvention: 'camelCase',
+                        sourceMap: true
+                    }
+                }],
             },
             {
                 test: /\.scss$/,
@@ -32,15 +55,32 @@ module.exports = {
                     // Translates CSS into CommonJS
                     'css-loader',
                     // Compiles Sass to CSS
-                    'sass-loader',
+                    {
+                        loader: "sass-loader"
+                    }
                 ],
             },
-            {
-                test: /\.(png|jpe?g|gif|svg|woff2?|eot|ttf|otf|wav)(\?.*)?$/,
-                loader: 'file-loader',
-                options: {
-                    name: '[name].[ext]',
-                },
+            { // config for images
+                test: /\.(png|svg|jpg|jpeg|gif)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            outputPath: 'images',
+                        }
+                    }
+                ],
+            },
+            { // config for fonts
+                test: /\.(woff|woff2|eot|ttf|otf)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            outputPath: 'fonts',
+                        }
+                    }
+                ],
             },
             {
                 test: /\.js|jsx$/,
@@ -60,12 +100,18 @@ module.exports = {
             inject: true,
             template: resolveAppPath('public/index.html'),
         }),
-        new MiniCssExtractPlugin()
+        new MiniCssExtractPlugin({ // plugin for controlling how compiled css will be outputted and named
+            filename: "css/[name].css",
+            chunkFilename: "css/[id].css"
+        }),
+        new CleanWebpackPlugin({
+            cleanOnceBeforeBuildPatterns: ["css/*.*", "js/*.*", "fonts/*.*", "images/*.*"]
+        }),
     ],
     devServer: {
 
         // Serve index.html as the base
-        contentBase: resolveAppPath('public'),
+        contentBase: resolveAppPath('./'),
 
         // Enable compression
         compress: true,
@@ -77,6 +123,7 @@ module.exports = {
 
         port: 3000,
 
+        open: true,
         // Public path is root of content base
         publicPath: '/',
 
