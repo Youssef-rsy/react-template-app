@@ -12,7 +12,7 @@ aside{
 
 .main-header {
     transition: margin-left .3s ease-in-out;
-    margin-left: 220px;
+    // margin-left: 220px;
 }
 
 :not(.layout-fixed) .main-sidebar {
@@ -33,15 +33,15 @@ aside{
 
 .main-sidebar, .main-sidebar::before {
     transition: margin-left .3s ease-in-out, width .3s ease-in-out;
-    width: 250px;
+    width: 16%;
 }
 
 .sidebar {
-    height: calc(100% - (3.5rem + 1px));
+    height: 100%;
     overflow-y: auto;
     padding-bottom: 0;
-    padding-left: .5rem;
-    padding-right: .5rem;
+    padding-left: .25rem;
+    padding-right: .25rem;
     padding-top: 0;
 }
 
@@ -124,9 +124,15 @@ aside{
 }
 
 .sidebar li ul {
-    padding: 0.3rem;
+    padding-left: 0.70rem;
+    // padding-right: 0.33rem;
 }
 
 .sidebar a[class*="p-nav-link"] {
     padding-left: 1.5em !important; ;
+}
+
+ol, ul, dl {
+    margin-top: 0;
+    margin-bottom: 0;
 }

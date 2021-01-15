@@ -38,7 +38,12 @@
         "language":{
             "title":"Langue",
             "setLanguageLabel":"Changer la langue d'affichage :",
-            "comment":"Le changement de langue sera immédiat"
+            "comment":"Le changement de langue sera immédiat",
+            "languages":{
+                "ar":"Arabe",
+                "fr":"Français",
+                "en":"Anglais"
+            }
         }
     },
     "profil":{
@@ -99,7 +104,22 @@
                 "name" : "agencyAddress"
             }
         },
-        "changePassword":"Modifier le mot de passe"
+        "changePassword":"Modifier le mot de passe",
+        "changePasswordModal":{
+            "title":"Mettre à jour le mot de passe",
+            "password":{
+                "label":"Nouveau mot de passe",
+                "name":"password",
+                "placeholder":"Entrer le nouveau mot de passe "
+            },
+            "repeatedPassword":{
+                "label":"Répéter le mot de passe",
+                "name":"repeatedPassword",
+                "placeholder":"Répéter le mot de passe saisi"
+            },
+            "save":"Enregistrer",
+            "close":"Fermer"
+        }
     },
     "users":{
         "title":"Gestion des Utilistateurs",
@@ -112,22 +132,22 @@
                 "name":{
                     "label" : "Nom Complet",
                     "name" : "name",
-                    "palceholder" : "Saisir un nom"
+                    "placeholder" : "Saisir un nom"
                 },
                 "email":{
                     "label" : "Adresse mail",
                     "name" : "email",
-                    "palceholder" : "Saisir un email : name@mail.com"
+                    "placeholder" : "Saisir un email : name@mail.com"
                 },
                 "phoneNumber":{
                     "label" : "Téléphone",
                     "name" : "phoneNumber",
-                    "palceholder" : "Saisir un numero de télephone :+2126584230"
+                    "placeholder" : "Saisir un numero de télephone :+2126584230"
                 },
                 "company":{
                     "label" : "Entreprise",
                     "name" : "company",
-                    "palceholder" : "Saisir un nom d'entreprise"
+                    "placeholder" : "Saisir un nom d'entreprise"
                 },
                 "submit":"Rechercher",
                 "reset":"Réinitialiser",
@@ -154,10 +174,53 @@
 
                 }
             }
+        },
+        "createUser":{
+            "title":"Nouveau utilisateur",
+            "name":{
+                "label" : "Nom Complet",
+                "name" : "name",
+                "placeholder" : "Saisir un nom"
+            },
+            "email":{
+                "label" : "Adresse mail",
+                "name" : "email",
+                "placeholder" : "Saisir un email : name@mail.com"
+            },
+            "phoneNumber":{
+                "label" : "Téléphone",
+                "name" : "phoneNumber",
+                "placeholder" : "Saisir un numero de télephone :+2126584230"
+            },
+            "company":{
+                "label" : "Entreprise",
+                "name" : "company",
+                "placeholder" : "Saisir un nom d'entreprise"
+            },
+            "address":{
+                "label" : "Addresse",
+                "name" : "personalAddress",
+                "placeholder" : "Saisir une addresse "
+            },
+            "submit":"Enregistrer",
+            "reset":"Réinitialiser"
         }
     },
+    "login":{
+        "login":{
+            "label" : "Adresse mail",
+            "name" : "login",
+            "placeholder" : "Saisir un email : name@mail.com"
+        },
+        "password":{
+            "label" : "Mot de Passe",
+            "name" : "password",
+            "placeholder" : "*******"
+        },
+        "signIn":"connexion"
+    },
     "notFound":{
-        "title":"Page non trouvée",
+        "title":"Page introuvable",
         "description":"vous voyez cette page, car vous avez essayé d'accéder à une page inexistante",
         "action":"Retournez à la page d'accueil"
     },

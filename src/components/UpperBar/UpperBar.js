@@ -5,7 +5,7 @@ import DropDownItem from '../DropdownItem/DropDownItem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import User from './../../assets/user.png';
 import constants from '../../utilities/constants/constants';
-import './UpperBar.scss';
+// import './UpperBar.scss';
 
 const UpperBar = (props) => {
   const {
@@ -14,8 +14,7 @@ const UpperBar = (props) => {
   const { t } = useTranslation();
   return (
     <nav
-      className={`upperbar  ${props.showMenu ? 'with-menu-bar' : 'without-menu-bar'
-        } navbar navbar-expand navbar-light  `}
+      className={`upperbar navbar navbar-expand navbar-light d-flex justify-content-between  ${props.showMenu ? 'with-menu-bar' : 'without-menu-bar'} `}
     >
       {/** Left navbar links **/}
       <ul className="navbar-nav">
@@ -38,7 +37,7 @@ const UpperBar = (props) => {
       </ul>
 
       {/** Right navbar links **/}
-      <ul className="navbar-nav ml-auto">
+      <ul className="navbar-nav ">
         {/** Notifications Dropdown menu **/}
         <li className="nav-item dropdown">
           <a className="nav-link" data-toggle="dropdown" href="#">
@@ -51,20 +50,20 @@ const UpperBar = (props) => {
         </li>
         <li className="nav-item dropdown py-1">
           <a
-            className="pt-1 px-0 show"
+            className="pt-1 px-0 show d-flex"
             href="#"
             data-toggle="dropdown"
             id="dropdownMenuButton"
             aria-haspopup="true"
             aria-expanded="false"
           >
-            <div className="media d-flex align-items-center">
+            <div className="media d-flex align-items-center  flex-row">
               <img
                 src={User}
                 alt="React Template App "
                 className="brand-image rounded-circle"
               />
-              <div className="media-body ml-2 text-dark align-items-center d-none d-lg-block">
+              <div className="media-body mx-2 text-dark align-items-center d-none d-lg-block">
                 <span className="mb-0 font-small font-weight-bold">
                   {firstName() + ' ' + lastName()}
                 </span>
@@ -72,7 +71,7 @@ const UpperBar = (props) => {
             </div>
           </a>
           <div
-            className="dropdown-menu mt-1 dropdown-menu-right"
+            className="dropdown-menu mt-1 dropdown-menu"
             aria-labelledby="dropdownMenuButton"
           >
             <DropDownItem

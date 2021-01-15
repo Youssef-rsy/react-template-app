@@ -2,9 +2,12 @@
 * Orson http:/*en.orson.io , autreplanete http:/*www.autreplanete.com/
 *
 **/
-@import "~bootstrap/scss/bootstrap";
-@import "~bootstrap/scss/functions";
-@import "~bootstrap/scss/mixins";
+@import "~bootstrap-v4-rtl/scss/bootstrap";
+@import "~bootstrap-v4-rtl/scss/functions";
+@import "~bootstrap-v4-rtl/scss/mixins";
+// @import "~bootstrap/scss/bootstrap";
+// @import "~bootstrap/scss/functions";
+// @import "~bootstrap/scss/mixins";
 @import "variables";
 
 /* Brand Colors */
@@ -529,7 +532,7 @@ $enable-print-styles: true;
 
 
 html {
-  font-family: Roboto;
+  font-family: Roboto , Tajawal;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -540,12 +543,12 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 }
 
 h1, h2, h3, h4, h4, h5, h6, .title {
-  font-family: OpenSans;
+  font-family: OpenSans , Almarai;
 }
 
 body {
   margin: 0;
-  font-family: Roboto;
+  font-family: Roboto , Tajawal;
 //  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 1rem;
   font-weight: 400;

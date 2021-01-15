@@ -19,7 +19,7 @@ const UserUpdateFrom = (props) => {
           type="text"
           id={t('users.users.search.name.name')}
           name={t('users.users.search.name.name')}
-          placeholder={t('users.users.search.name.palceholder')}
+          placeholder={t('users.users.search.name.placeholder')}
           label={t('users.users.search.name.label')}
         />
         <Field
@@ -28,7 +28,7 @@ const UserUpdateFrom = (props) => {
           type="text"
           id={t('users.users.search.email.name')}
           name={t('users.users.search.email.name')}
-          placeholder={t('users.users.search.email.palceholder')}
+          placeholder={t('users.users.search.email.placeholder')}
           label={t('users.users.search.email.label')}
         />
         <Field
@@ -37,7 +37,7 @@ const UserUpdateFrom = (props) => {
           type="text"
           id={t('users.users.search.phoneNumber.name')}
           name={t('users.users.search.phoneNumber.name')}
-          placeholder={t('users.users.search.phoneNumber.palceholder')}
+          placeholder={t('users.users.search.phoneNumber.placeholder')}
           label={t('users.users.search.phoneNumber.label')}
         />
         <Field
@@ -45,7 +45,7 @@ const UserUpdateFrom = (props) => {
           type="text"
           id={t('users.users.search.company.name')}
           name={t('users.users.search.company.name')}
-          placeholder={t('users.users.search.company.palceholder')}
+          placeholder={t('users.users.search.company.placeholder')}
           label={t('users.users.search.company.label')}
         />
         <Field
@@ -57,19 +57,19 @@ const UserUpdateFrom = (props) => {
       </div>
       <div className="px-0 col-md-12 d-flex flex-row-reverse">
         <button
-          type="submit"
-          className="btn btn-primary col-md-2 mx-1 "
-          disabled={pristine || submitting}
-        >
-          {t('users.users.search.submit')}
-        </button>
-        <button
           type="reset"
           className="btn btn-secondary col-md-2 mx-1"
           onClick={reset}
           disabled={pristine}
         >
           {t('users.users.search.reset')}
+        </button>
+        <button
+          type="submit"
+          className="btn btn-primary col-md-2 mx-1 "
+          disabled={pristine || submitting}
+        >
+          {t('users.users.search.submit')}
         </button>
       </div>
     </form>

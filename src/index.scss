@@ -14,6 +14,19 @@
       url("./utilities/fonts/Roboto-Regular.ttf") format("truetype");
     font-weight: normal;
   }
+@font-face {
+    font-family: "Almarai";
+    src: local("AlmaraiBold"),
+      url("./utilities/fonts/Almarai-Bold.ttf") format("truetype");
+    font-weight: normal ;
+  }
+  
+@font-face {
+    font-family: "Tajawal";
+    src: local("TajawalRegular"),
+      url("./utilities/fonts/Tajawal-Regular.ttf") format("truetype");
+    font-weight: normal;
+  }
 
   html,body,.wrapper{
     min-height: 100%;
@@ -49,14 +62,14 @@
 }
 
 .content{
-  background-color: #F5F8FB;
+  background-color: $background;
   padding: 10px 0 0 0;
   border-radius: 19px 19px 0 0;
 }
 
 .content-wrapper {
-  background-color: #F5F8FB;
-  margin-left: 250px;
+  background-color:$background;
+  // margin-left: 250px;
   transition: margin-left 0.1s ease-in-out;
 }
 .content-header .breadcrumb {

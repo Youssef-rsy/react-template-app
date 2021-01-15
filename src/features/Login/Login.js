@@ -6,6 +6,7 @@ import Logo from './../../assets/react.svg';
 import BackgroundRight from './../../assets/example-1.svg';
 import BackgroundLight from './../../assets/bg-2.svg';
 import { useHistory } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 import './Login.scss';
 
@@ -20,6 +21,7 @@ const backgroundStyle = {
 
 const Login = props => {
 
+    const { t } = useTranslation();
     const { handleSubmit, pristine, reset, submitting } = props;
     let history = useHistory();
 
@@ -52,13 +54,11 @@ const Login = props => {
                                     <span className=" d-none row col-md-12  m-0 text-danger align-self-center text-justify p-2 text-center">Cillum anim eu pariatur voluptate commodo eiusmod proident.</span>
                                     <form onSubmit={handleSubmit(login)}>
                                         <>
-                                            <Field component={renderInputField} validate={[required, email]} name="login" label="Login" type="text" placeholder="Email addresse..." />
-                                            <Field component={renderInputField} validate={required} name="password" label="Password" type="password" placeholder="Password" />
+                                            <Field component={renderInputField} validate={[required, email]} name={t('login.login.name')} label={t('login.login.label')} type="text" placeholder={t('login.login.placeholder')} />
+                                            <Field component={renderInputField} validate={required} name={t('login.password.name')} label={t('login.password.label')} type="password" placeholder={t('login.password.placeholder')} />
                                         </>
                                         <div className="d-flex flex-column mt-5">
-                                            <button type="submit" className="btn btn-primary my-1" disabled={pristine || submitting}>Login</button>
-                                            {/* <button type="reset" className="btn btn-secondary my-1" onClick={reset}
-                                                disabled={pristine || submitting} data-dismiss="modal">Reset</button> */}
+                                            <button type="submit" className="btn btn-primary my-1" disabled={pristine || submitting}>{t('login.signIn')}</button>
                                         </div>
                                     </form>
                                 </div >

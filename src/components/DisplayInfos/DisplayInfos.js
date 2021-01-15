@@ -3,15 +3,16 @@ import React from 'react';
 const DisplayInfos = (props) => {
   const { disabled, label, name, value } = props;
   return (
-    <div className="row ml-2">
+    <div className="row mx-2 d-flex justify-content-around">
       <label
         htmlFor={name}
-        className="col-sm-3 col-form-label font-weight-bold"
+        className="col-sm-2 col-form-label font-weight-bold"
       >
         {label}
-        <span className="float-right">:</span>
       </label>
+      <span className="col-sm-1">:</span>
       <div className="col-sm-9">
+
         <input
           type="text"
           className="form-control-plaintext"

@@ -1,4 +1,10 @@
 @import './../utilities/scss//variables';
+.app-background{
+  background-color: $background;
+}
+.content-width{
+width: 83% !important;
+}
 
 .brand-image {
   float: left;

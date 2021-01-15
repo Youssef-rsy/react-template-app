@@ -1,6 +1,8 @@
+@import './../../utilities/scss/variables';
+
 .neumorphism{
     border-radius: 16px;
-    background: #F5F8FB;
+    background: $background;
     box-shadow:  15px 15px 24px #e1e4e7,
                  -15px -15px 24px #ffffff;
     

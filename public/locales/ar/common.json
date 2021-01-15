@@ -38,12 +38,17 @@
         "language":{
             "title":"لغة",
             "setLanguageLabel":"تغيير لغة العرض:",
-            "comment":"سيكون تغيير اللغة فوريًا"
+            "comment":"سيكون تغيير اللغة فوريًا",
+            "languages":{
+                "ar":"العربية",
+                "fr":"فرنسي",
+                "en":"الإنجليزية"
+            }
         }
     },
     "profil":{
         "personal":{
-            "title":"Personelle",
+            "title":"معلومات شخصية",
             "firstName":{
                 "label" : "اسم العائلة",
                 "name" : "firstName"
@@ -70,7 +75,7 @@
             }
         },
         "professional":{
-            "title":"Profesionnelle",
+            "title":"المعلومات المهنية",
             "team":{
                 "label" : "الفريق",
                 "name" : "team"
@@ -99,7 +104,22 @@
                 "name" : "agencyAddress"
             }
         },
-        "changePassword":"تغيير كلمة السر"
+        "changePassword":"تغيير كلمة السر",
+        "changePasswordModal":{
+            "title":"تحديث كلمة المرور",
+            "password":{
+                "label":"كلمة المرور الجديدة",
+                "name":"password",
+                "placeholder":"أدخل كلمة المرور الجديدة"
+            },
+            "repeatedPassword":{
+                "label":"كرر كلمة المرور",
+                "name":"repeatedPassword",
+                "placeholder":"كرر كلمة مرورك الجديدة"
+            },
+            "save":"احفظ",
+            "close":"إغلاق"
+        }
     },
     "users":{
         "title":"إدارةالمستخدم",
@@ -112,22 +132,22 @@
                 "name":{
                     "label" : "الاسم بالكامل",
                     "name" : "name",
-                    "palceholder" : "إدخال اسم"
+                    "placeholder" : "إدخال اسم"
                 },
                 "email":{
                     "label" : "عنوان البريد الإلكتروني",
                     "name" : "email",
-                    "palceholder" : "أدخل بريدًا إلكترونيًا: name@mail.com"
+                    "placeholder" : "أدخل بريدًا إلكترونيًا: name@mail.com"
                 },
                 "phoneNumber":{
                     "label" : "هاتف",
                     "name" : "phoneNumber",
-                    "palceholder" : "أدخل رقم الهاتف: +2126584230"
+                    "placeholder" : "أدخل رقم الهاتف: +2126584230"
                 },
                 "company":{
                     "label" : "شركة",
                     "name" : "company",
-                    "palceholder" : "أدخل اسم شركة"
+                    "placeholder" : "أدخل اسم شركة"
                 },
                 "submit":"بحث",
                 "reset":"إعادة تعيين",
@@ -154,7 +174,50 @@
 
                 }
             }
+        },
+        "createUser":{
+            "title":"مستخدم جديد",
+            "name":{
+                "label" : "الاسم بالكامل",
+                "name" : "name",
+                "placeholder" : "إدخال اسم"
+            },
+            "email":{
+                "label" : "عنوان البريد الإلكتروني",
+                "name" : "email",
+                "placeholder" : "أدخل بريدًا إلكترونيًا: name@mail.com"
+            },
+            "phoneNumber":{
+                "label" : "هاتف",
+                "name" : "phoneNumber",
+                "placeholder" : "أدخل رقم الهاتف: +2126584230"
+            },
+            "company":{
+                "label" : "شركة",
+                "name" : "company",
+                "placeholder" : "أدخل اسم شركة"
+            },
+            "address":{
+                "label" : "العنوان",
+                "name" : "personalAddress",
+                "placeholder" : " أدخل العنوان"
+            },
+            "submit":"تسجيل",
+            "reset":"إعادة تعيين"
         }
+    },
+    "login":{
+        "login":{
+            "label" : "عنوان البريد الإلكتروني",
+            "name" : "login",
+            "placeholder" : "أدخل بريدًا إلكترونيًا: name@mail.com"
+        },
+        "password":{
+            "label" : "كلمة السر",
+            "name" : "password",
+            "placeholder" : "*******"
+        },
+        "signIn":"المصادقة"
     },
     "notFound":{
         "title":"الصفحة غير موجودة",

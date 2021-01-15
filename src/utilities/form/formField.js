@@ -11,7 +11,7 @@ export const renderInputField = ({
   meta: { touched, error, warning },
 }) => (
   <div className={`form-group ${col}`}>
-    <label>{label}</label>
+    <label for={id} className="d-flex flex-row">{label}</label>
     <input
       {...input}
       placeholder={label}

@@ -50,14 +50,14 @@ const Profil = () => {
               src={image.imageUrl()}
               alt="user image"
             />
-            <div className="card-body border-top">
-              <h6 className="card-title">
+            <div className="card-body border-top d-flex flex-column">
+              <h6 className="card-title  d-inline-flex">
                 {name.firstName() + '  ' + name.lastName()}
               </h6>
-              <p className="card-text">{name.jobTitle()}</p>
+              <p className="card-text  d-inline-flex">{name.jobTitle()}</p>
             </div>
             <div className="rta-hr"></div>
-            <div className="card-body ">
+            <div className="card-body d-inline-flex">
               <a href="#" className="btn btn-outline-primary " data-toggle="modal" data-target="#exampleModal">
                 {t('profil.changePassword')}
               </a>
@@ -68,7 +68,7 @@ const Profil = () => {
           <div className="modal-dialog modal-dialog-centered" role="document">
             <div className="modal-content">
               <div className="modal-header">
-                <h5 className="modal-title" id="exampleModalLabel">Update Password</h5>
+                <h5 className="modal-title" id="exampleModalLabel">{t('profil.changePasswordModal.title')}</h5>
                 <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -83,8 +83,8 @@ const Profil = () => {
         </div>
         <div className="col-lg-9">
           <div className="card card-primary card-outline">
-            <div className="card-header">
-              <h6 className="m-0">{t('profil.personal.title')}</h6>
+            <div className="card-header d-inline-flex">
+              <h6 className="m-0 ">{t('profil.personal.title')}</h6>
             </div>
             <div className="card-body">
               <DisplayInfos
@@ -124,7 +124,7 @@ const Profil = () => {
                 disabled={true}
               />
             </div>
-            <div className="card-header">
+            <div className="card-header d-inline-flex">
               <h6 className="m-0">{t('profil.professional.title')}</h6>
             </div>
             <div className="card-body">
@@ -153,7 +153,7 @@ const Profil = () => {
                 disabled={true}
               />
             </div>
-            <div className="card-header">
+            <div className="card-header d-inline-flex">
               <h6 className="m-0">{t('profil.agency.title')}</h6>
             </div>
             <div className="card-body">

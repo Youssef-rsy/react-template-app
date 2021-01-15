@@ -2,7 +2,8 @@ import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
-import 'bootstrap/dist/js/bootstrap.min.js';
+// import 'bootstrap/dist/js/bootstrap.min.js';
+import 'bootstrap-v4-rtl/dist/js/bootstrap.min.js';
 
 import './utilities/fonts/fonts.js';
 

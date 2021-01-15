@@ -12,11 +12,11 @@ const SideBar = (props) => {
     <aside
       className={
         'main-sidebar sidebar-dark-primary ' +
-        (props.show ? 'd-none' : 'd-bloc')
+        (props.show ? 'd-none' : 'd-block')
       }
     >
       {/** Brand Logo **/}
-      <Link to={`${url}/dashboard`} className="brand-link">
+      <Link to={`${url}/dashboard`} className="brand-link d-flex flex-row">
         <img
           src={Logo}
           alt="React Template App Logo"
@@ -41,7 +41,7 @@ const SideBar = (props) => {
                 icon="tachometer-alt"
                 className="nav-icon d-flex align-self-center"
               />
-              <p className="d-flex flex-row ml-2 mb-0 w-100 justify-content-between ">
+              <p className="d-flex flex-row mx-2 mb-0 w-100 justify-content-between ">
                 <span>{t('sideBar.menu.dashboard')}</span>
               </p>
             </NavLink>
@@ -56,12 +56,12 @@ const SideBar = (props) => {
                 icon="user-circle"
                 className="nav-icon d-flex align-self-center"
               />
-              <p className="d-flex flex-row ml-2 mb-0 w-100 justify-content-between ">
+              <p className="d-flex flex-row mx-2 mb-0 w-100 justify-content-between ">
                 <span>{t('sideBar.menu.profil')}</span>
               </p>
             </NavLink>
           </li>
-          <ul className="navbar-nav w-100">
+          <li className="navbar-nav w-100">
             <li className="w-100">
               <a
                 className="nav-item nav-link nav-item-parent  w-100 d-flex flex-row px-1"
@@ -75,7 +75,7 @@ const SideBar = (props) => {
                   icon="users-cog"
                   className="nav-icon d-flex align-self-center"
                 />
-                <span className="d-flex flex-row ml-2 mb-0 w-100 justify-content-between ">
+                <span className="d-flex flex-row mx-2 mb-0 w-100 justify-content-between ">
                   {t('sideBar.menu.users.title')}
                 </span>
               </a>
@@ -85,7 +85,7 @@ const SideBar = (props) => {
                 <li className="nav-item ">
                   <NavLink to={`${url}/create-user`} className="nav-item nav-link w-100 d-flex flex-row px-1" activeClassName="active " >
                     <FontAwesomeIcon icon="user-plus" className="nav-icon d-flex align-self-center" />
-                    <p className="d-flex flex-row ml-2 mb-0 w-100 justify-content-between ">
+                    <p className="d-flex flex-row mx-2 mb-0 w-100 justify-content-between ">
                       <span>{t('sideBar.menu.users.createUser')}</span>
                     </p>
                   </NavLink>
@@ -100,14 +100,14 @@ const SideBar = (props) => {
                       icon="users"
                       className="nav-icon d-flex align-self-center"
                     />
-                    <p className="d-flex flex-row ml-2 mb-0 w-100 justify-content-between ">
+                    <p className="d-flex flex-row mx-2 mb-0 w-100 justify-content-between ">
                       <span>{t('sideBar.menu.users.users')}</span>
                     </p>
                   </NavLink>
                 </li>
               </ul>
             </li>
-          </ul>
+          </li>
           <li className="w-100">
             <NavLink
               to={`${url}/setting`}
@@ -118,7 +118,7 @@ const SideBar = (props) => {
                 icon="cog"
                 className="nav-icon d-flex align-self-center"
               />
-              <p className="d-flex flex-row ml-2 mb-0 w-100 justify-content-between ">
+              <p className="d-flex flex-row mx-2 mb-0 w-100 justify-content-between ">
                 <span>{t('sideBar.menu.setting')}</span>
               </p>
             </NavLink>
@@ -138,7 +138,7 @@ const SideBar = (props) => {
                   icon={['fas', 'home']}
                   className="nav-icon d-flex align-self-center"
                 />
-                <span className="d-flex flex-row ml-2 mb-0 w-100 justify-content-between ">
+                <span className="d-flex flex-row mx-2 mb-0 w-100 justify-content-between ">
                   Menu 2
                 </span>
               </a>
@@ -151,7 +151,7 @@ const SideBar = (props) => {
                       icon="cogs"
                       className="nav-icon d-flex align-self-center"
                     />
-                    <span className="ml-2 ">Sous Menu N°1</span>
+                    <span className="mx-2 ">Sous Menu N°1</span>
                   </a>
                 </li>
                 <li className="nav-item ">
@@ -177,7 +177,7 @@ const SideBar = (props) => {
                       icon="bug"
                       className="nav-icon d-flex align-self-center"
                     />
-                    <p className="d-flex flex-row ml-2 mb-0 w-100 justify-content-between ">
+                    <p className="d-flex flex-row mx-2 mb-0 w-100 justify-content-between ">
                       <span>Sous Menu N°4</span>
                     </p>
                   </a>
@@ -191,7 +191,7 @@ const SideBar = (props) => {
                           icon="cogs"
                           className="nav-icon d-flex align-self-center"
                         />
-                        <span className="ml-2 ">Action</span>
+                        <span className="mx-2 ">Action</span>
                       </a>
                     </li>
                     <li className="nav-item">

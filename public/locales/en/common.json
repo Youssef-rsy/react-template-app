@@ -38,7 +38,12 @@
         "language":{
             "title":"Language",
             "setLanguageLabel":"Change displayed language :",
-            "comment":"The language change will be immediate"
+            "comment":"The language change will be immediate",
+            "languages":{
+                "ar":"Arabic",
+                "fr":"French",
+                "en":"English"
+            }
         }
     },
     "profil":{
@@ -99,7 +104,22 @@
                 "name" : "agencyAddress"
             }
         },
-        "changePassword":"Update password"
+        "changePassword":"Update password",
+        "changePasswordModal":{
+            "title":"Update Password",
+            "password":{
+                "label":"New password",
+                "name":"password",
+                "placeholder":"Enter new password "
+            },
+            "repeatedPassword":{
+                "label":"Repeate Password",
+                "name":"repeatedPassword",
+                "placeholder":"Repeate your new password"
+            },
+            "save":"Save",
+            "close":"Close"
+        }
     },
     "users":{
         "title":"Mange Users",
@@ -112,22 +132,22 @@
                 "name":{
                     "label" : "Full name",
                     "name" : "name",
-                    "palceholder" : "Enter a full name : youssef"
+                    "placeholder" : "Enter a full name : youssef"
                 },
                 "email":{
                     "label" : "Email Address",
                     "name" : "email",
-                    "palceholder" : "Enter an email : name@mail.com"
+                    "placeholder" : "Enter an email : name@mail.com"
                 },
                 "phoneNumber":{
                     "label" : "Phone-Number",
                     "name" : "phoneNumber",
-                    "palceholder" : "Enter a phone number :+2126584230"
+                    "placeholder" : "Enter a phone number :+2126584230"
                 },
                 "company":{
                     "label" : "Company",
                     "name" : "company",
-                    "palceholder" : "Enter a Company name"
+                    "placeholder" : "Enter a Company name"
                 },
                 "submit":"Submit",
                 "reset":"Reset",
@@ -154,7 +174,50 @@
 
                 }
             }
+        },
+        "createUser":{
+            "title":"New User",
+            "name":{
+                "label" : "Full name",
+                "name" : "name",
+                "placeholder" : "Enter a full name : youssef"
+            },
+            "email":{
+                "label" : "Email Address",
+                "name" : "email",
+                "placeholder" : "Enter an email : name@mail.com"
+            },
+            "phoneNumber":{
+                "label" : "Phone-Number",
+                "name" : "phoneNumber",
+                "placeholder" : "Enter a phone number :+2126584230"
+            },
+            "company":{
+                "label" : "Company",
+                "name" : "company",
+                "placeholder" : "Enter a Company name"
+            },
+            "address":{
+                "label" : "Address",
+                "name" : "personalAddress",
+                "placeholder" : "Enter a Company name"
+            },
+            "submit":"Submit",
+            "reset":"Reset"
         }
+    },
+    "login":{
+        "login":{
+            "label" : "Email Address",
+            "name" : "login",
+            "placeholder" : "Enter an email : name@mail.com"
+        },
+        "password":{
+            "label" : "Password",
+            "name" : "password",
+            "placeholder" : "*******"
+        },
+        "signIn":"Sign In"
     },
     "notFound":{
         "title":"Page Not Found",

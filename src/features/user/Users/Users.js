@@ -64,7 +64,7 @@ class Users extends Component {
     return (
       <>
         {!isEmpty(this.state.searchCriteria) && (
-          <div className=" my-2 py-2 d-flex flex-row ml-2 border-bottom">
+          <div className=" my-2 py-2 d-flex flex-row mx-2 border-bottom">
             <dl className="d-flex flex-row  mb-0 ">
               <dt className="align-self-center text-dark">
                 {t('users.users.search.searchCirteria')}
@@ -190,7 +190,7 @@ class Users extends Component {
           role="document"
         >
           <div className="modal-content">
-            <div className="modal-header">
+            <div className="modal-header d-flex justify-content-between">
               <h5 className="modal-title">{t('users.users.search.modal.update.title')}</h5>
               <button
                 type="button"

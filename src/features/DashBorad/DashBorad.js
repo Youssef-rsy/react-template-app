@@ -16,7 +16,7 @@ const DashBorad = (props) => {
               href="#collapseExample"
               aria-expanded="true"
               aria-controls="collapseExample"
-              className="d-flex ml-1 w-100 card-header-collapse pt-1"
+              className="d-flex mx-1 w-100 card-header-collapse pt-1"
             >
               <h6 className="card-title px-2">Bar Chart</h6>
             </a>
@@ -34,7 +34,7 @@ const DashBorad = (props) => {
               href="#collapseExample2"
               aria-expanded="true"
               aria-controls="collapseExample2"
-              className="d-flex ml-1 w-100 card-header-collapse pt-1"
+              className="d-flex mx-1 w-100 card-header-collapse pt-1"
             >
               <h6 className="card-title px-2">Pie Chart</h6>
             </a>
@@ -53,7 +53,7 @@ const DashBorad = (props) => {
               href="#collapseExample3"
               aria-expanded="true"
               aria-controls="collapseExample3"
-              className="d-flex ml-1 w-100 card-header-collapse pt-1"
+              className="d-flex mx-1 w-100 card-header-collapse pt-1"
             >
               <h6 className="card-title px-2">Doughnut Chart</h6>
             </a>
@@ -71,7 +71,7 @@ const DashBorad = (props) => {
               href="#collapseExample4"
               aria-expanded="true"
               aria-controls="collapseExample"
-              className="d-flex ml-1 w-100 card-header-collapse pt-1"
+              className="d-flex mx-1 w-100 card-header-collapse pt-1"
             >
               <h6 className="card-title px-2">Polar Chart</h6>
             </a>
@@ -89,7 +89,7 @@ const DashBorad = (props) => {
               href="#collapseExample5"
               aria-expanded="true"
               aria-controls="collapseExample"
-              className="d-flex ml-1 w-100 card-header-collapse pt-1"
+              className="d-flex mx-1 w-100 card-header-collapse pt-1"
             >
               <h6 className="card-title px-2">GroupedBar Chart</h6>
             </a>

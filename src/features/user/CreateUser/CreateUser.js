@@ -18,7 +18,7 @@ const CreateUser = props => {
                 <div className="col-lg-12">
                     <div className="card">
                         <div className="card-body card-primary card-outline">
-                            <h5 className="card-title text-primary">create New User</h5>
+                            <h5 className="card-title text-primary d-flex flex-row">{t('users.createUser.title')}</h5>
                             <div className="card-text">
                                 <CreateUserForm onSubmit={addUser} />
                             </div>

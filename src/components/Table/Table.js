@@ -18,23 +18,23 @@ const Table = (props) => {
         accessor: 'name', // accessor is the "key" in the data
       },
       {
-        Header: 'Email',
+        Header: `${t('users.users.search.table.email')}`,
         accessor: 'email',
       },
       {
-        Header: 'PhoneNumber',
+        Header: `${t('users.users.search.table.phoneNumber')}`,
         accessor: 'phoneNumber',
       },
       {
-        Header: 'Address',
+        Header: `${t('users.users.search.table.address')}`,
         accessor: 'address',
       },
       {
-        Header: 'company',
+        Header: `${t('users.users.search.table.company')}`,
         accessor: 'company',
       },
       {
-        Header: 'Operation',
+        Header: `${t('users.users.search.table.operation')}`,
         accessor: 'id',
         Cell: row => (
           <span className="d-inline-flex">
@@ -171,7 +171,6 @@ const Table = (props) => {
     return (
       <div className="d-flex flex-row justify-content-between pt-3">
         <div className="row col-md-6 pb-1">
-          <label htmlFor="inputEmail3" className="col-sm-2 col-form-label pr-0">Search</label>
           <div className="col-sm-6 pl-0">
             <input
               className="form-control "
@@ -192,7 +191,7 @@ const Table = (props) => {
               }}
             > <FontAwesomeIcon
                 icon="trash-alt"
-                className="text-info"
+                className="text-danger"
               />
               <b className="mx-1">Delete{Object.keys(selectedRowIds).length} row </b>
             </a> : ''}
@@ -237,12 +236,12 @@ const Table = (props) => {
             </a>
             <div className="dropdown-menu" aria-labelledby="dropdownColumnHide">
               {allColumns.map(column => {
-                if (column.id !== 'id') {
+                if (column.id !== 'id' && column.id !== 'selection') {
                   return (
                     <div className="dropdown-item" key={column.id} >
                       <label>
-                        <input type="checkbox" {...column.getToggleHiddenProps()} />{' '}
-                        {column.id}
+                        <input type="checkbox" {...column.getToggleHiddenProps()} />
+                        {column.Header}
                       </label>
                     </div>
                   )
@@ -308,7 +307,7 @@ const Table = (props) => {
   } = tableInstance;
 
   return (
-    <div className="table-responsive-lg w-100">
+    <div className="table-responsive-lg w-100 overflow-auto">
 
       <GlobalFilter exportData={exportData} allColumns={allColumns} preGlobalFilteredRows={preGlobalFilteredRows} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
       <table className="table table-striped  table-bordered px-2 " {...getTableProps()}>

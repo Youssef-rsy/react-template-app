@@ -2,10 +2,10 @@
 @import './../../utilities/scss/variables';
 
 .upperbar {
-    background-color: #F5F8FB;
+    background-color: $background;
 }
 .without-menu-bar {
-        margin-left: 250px;
+        // margin-left: 250px;
 }
 .with-menu-bar{
     transition: margin-left .3s ease-in-out, width .3s ease-in-out;
