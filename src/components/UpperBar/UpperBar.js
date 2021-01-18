@@ -20,7 +20,7 @@ const UpperBar = (props) => {
       <ul className="navbar-nav">
         <li className="nav-item p-0">
           <a
-            className="nav-link"
+            className="nav-link d-md-none d-sm-none d-lg-block"
             onClick={() => props.show()}
             data-widget="pushmenu"
             href="#"
@@ -34,6 +34,7 @@ const UpperBar = (props) => {
             <FontAwesomeIcon icon="expand-arrows-alt" />
           </a>
         </li>
+
       </ul>
 
       {/** Right navbar links **/}
@@ -68,10 +69,11 @@ const UpperBar = (props) => {
                   {firstName() + ' ' + lastName()}
                 </span>
               </div>
+
             </div>
           </a>
           <div
-            className="dropdown-menu mt-1 dropdown-menu"
+            className="dropdown-menu mt-1  dropdown-menu-lg dropdown-menu-left"
             aria-labelledby="dropdownMenuButton"
           >
             <DropDownItem

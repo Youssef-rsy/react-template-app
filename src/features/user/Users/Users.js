@@ -175,7 +175,6 @@ class Users extends Component {
 
   renderUpdateUserModal() {
     const { t, user } = this.props;
-    console.log("user :", user);
     return (
       <div
         className="modal fade"

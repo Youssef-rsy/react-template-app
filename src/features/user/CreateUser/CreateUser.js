@@ -8,7 +8,6 @@ const CreateUser = props => {
 
     const addUser = (user) => {
         const { createUser } = props;
-        console.log(user);
         createUser(user)
     }
 

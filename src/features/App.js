@@ -22,19 +22,18 @@ const App = props => {
     setShowdata(!showdata);
   }
   useEffect(() => {
-    console.log(i18n);
     i18n.language === "ar" ?
       document.body.style.direction = "rtl" : document.body.style.direction = "ltr";
   }, []);
 
   const { path } = useRouteMatch();
   return (
-    <div className="container-fluid app-background">
-      <div className="row px-0 d-flex flex-md-column flex-lg-row">
-        <div className={'col-md-2 px-0  ' + (showdata ? 'd-none' : 'd-block')} >
+    <div className="container-fluid  app-background ">
+      <div className="row px-0 d-flex fill flex-md-column flex-lg-row ">
+        <div className={'col-12 col-lg-2  px-0 sidebar-dark-primary ' + (showdata ? 'd-none' : 'd-block')}>
           <SideBar show={showdata} />
         </div>
-        <div className={'col-md-auto px-0  no-gutters  d-flex flex-column ' + (showdata ? 'w-100' : 'content-width')} >
+        <div className={'col-12 col-lg-auto  px-0 no-gutters  d-flex flex-column ' + (showdata ? 'w-100' : 'content-width')}>
           <UpperBar show={show} showMenu={showdata} />
           <div className={'content-wrapper '} >
             <Alerts />

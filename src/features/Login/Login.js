@@ -27,10 +27,7 @@ const Login = props => {
 
     const login = (userAuth) => {
 
-        console.log('history :', history);
-        console.log(userAuth);
         if (userAuth.login === "youssef.rsy@gmail.com" && userAuth.password === "password") {
-            console.log('redirect')
             history.push('/app')
         }
     }

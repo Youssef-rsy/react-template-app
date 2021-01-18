@@ -2,9 +2,9 @@
 .app-background{
   background-color: $background;
 }
-.content-width{
-width: 83% !important;
-}
+
+
+
 
 .brand-image {
   float: left;
@@ -54,16 +54,6 @@ width: 83% !important;
 }
 
 
-
-
-/*
-body:not(.sidebar-mini-md) .content-wrapper, body:not(.sidebar-mini-md) .main-footer, body:not(.sidebar-mini-md) .main-header {
-  transition: margin-left .3s ease-in-out;
-  margin-left: 60px;
-}
-*/
-
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -71,4 +61,24 @@ body:not(.sidebar-mini-md) .content-wrapper, body:not(.sidebar-mini-md) .main-fo
   to {
     transform: rotate(360deg);
   }
+}
+
+
+@media screen and  (min-width: 992px) { 
+
+  .content-width  { 
+  width:83% !important;
+  }
+
+  .fill { 
+    min-height: 100vh;
+  }
+  
+ }
+@media screen and  (max-width: 992px) { 
+  
+  .fill { 
+    min-height: 100%;
+  }
+ 
 }

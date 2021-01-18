@@ -530,6 +530,14 @@ $enable-grid-classes: true;
 $enable-print-styles: true;
 
 
+html,
+body {
+  min-height: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
 
 html {
   font-family: Roboto , Tajawal;

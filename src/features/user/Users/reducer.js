@@ -31,7 +31,6 @@ function mapUsers(users) {
     address: user.address.city.concat(' ').concat(user.address.state).concat(',').concat(user.address.country),
     company: user.company.name
   }));
-  console.log('map users :', newUsers);
   return newUsers;
 }
 /* ************************************* */
@@ -68,7 +67,6 @@ function reducer(state = initialState, action) {
       };
     }
     case types.GET_USERS_REJECTED: {
-      console.log('---------------------->', action.payload);
       return {
         ...state,
         loading: false,
@@ -113,7 +111,6 @@ function reducer(state = initialState, action) {
       };
     }
     case types.FIND_USER_FULFILLED: {
-      console.log(action.payload.data.data);
       return {
         ...state,
         user: action.payload.data.data,

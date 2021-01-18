@@ -11,24 +11,28 @@ const SideBar = (props) => {
   return (
     <aside
       className={
-        'main-sidebar sidebar-dark-primary ' +
+        '  main-sidebar sidebar-dark-primary w-100 ' +
         (props.show ? 'd-none' : 'd-block')
       }
     >
-      {/** Brand Logo **/}
-      <Link to={`${url}/dashboard`} className="brand-link d-flex flex-row">
-        <img
-          src={Logo}
-          alt="React Template App Logo"
-          className="brand-image  rounded-circle elevation-3"
-        />
-        <span className="brand-text font-weight-light">{t('app-title')}</span>
-      </Link>
-      {/** Sidebar **/}
-      <div className="sidebar">
-        {/** Sidebar user panel (optional) **/}
+      <div className="d-flex flex-row">
+        <a className="btn btn-primary" data-toggle="collapse" href="#collapseSidbar" role="button" aria-expanded="false" aria-controls="collapseExample"
+          className="nav-link text-light  d-md-block d-sm-block d-lg-none align-self-center"
+        >
+          <FontAwesomeIcon icon='bars' />
+        </a>
+        <Link to={`${url}/dashboard`} className="brand-link d-flex flex-row">
+          <img
+            src={Logo}
+            alt="React Template App Logo"
+            className="brand-image  rounded-circle elevation-3"
+          />
+          <span className="brand-text font-weight-light">{t('app-title')}</span>
+        </Link>
+      </div>
 
-        {/** Sidebar menu **/}
+      <div className="sidebar d-lg-block collapse show " id="collapseSidbar">
+
         <nav className="navbar-nav w-100 pt-2">
           <li className="w-100">
             <NavLink
@@ -61,7 +65,7 @@ const SideBar = (props) => {
               </p>
             </NavLink>
           </li>
-          <li className="navbar-nav w-100">
+          <ul className="navbar-nav w-100">
             <li className="w-100">
               <a
                 className="nav-item nav-link nav-item-parent  w-100 d-flex flex-row px-1"
@@ -107,7 +111,7 @@ const SideBar = (props) => {
                 </li>
               </ul>
             </li>
-          </li>
+          </ul>
           <li className="w-100">
             <NavLink
               to={`${url}/setting`}
