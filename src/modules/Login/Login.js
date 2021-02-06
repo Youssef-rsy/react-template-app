@@ -1,7 +1,7 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
-import { renderInputField } from './../../utilities/form/formField'
-import { email, required } from './../../utilities/form/formValidation'
+import { renderInputField } from '@utilities/form/formField'
+import { email, required } from '@utilities/form/formValidation'
 import Logo from './../../assets/react.svg';
 import BackgroundRight from './../../assets/example-1.svg';
 import BackgroundLight from './../../assets/bg-2.svg';

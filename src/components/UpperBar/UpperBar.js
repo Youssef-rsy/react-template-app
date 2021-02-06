@@ -4,7 +4,7 @@ import faker from 'faker';
 import DropDownItem from '../DropdownItem/DropDownItem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import User from './../../assets/user.png';
-import constants from '../../utilities/constants/constants';
+import constants from '@utilities/constants/constants';
 // import './UpperBar.scss';
 
 const UpperBar = (props) => {

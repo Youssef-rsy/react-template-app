@@ -1,13 +1,13 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { renderInputField } from '../../utilities/form/formField';
+import { renderInputField } from '@utilities/form/formField';
 import {
   required,
   email,
   number,
   phoneNumber,
-} from '../../utilities/form/formValidation';
+} from '@utilities/form/formValidation';
 
 const UserForm = (props) => {
   const { t, handleSubmit, pristine, reset, submitting } = props;

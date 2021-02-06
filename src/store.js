@@ -8,7 +8,7 @@ import logger from 'redux-logger';
 
 const composeEnhancers = composeWithDevTools({});
 const middleware = [thunk, promise, AlertMiddleware, logger];
-if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV && process.env.NODE_ENV === 'development') {
   middleware.push(logger);
 }
 

@@ -164,23 +164,24 @@ const Table = (props) => {
   }) {
     const count = preGlobalFilteredRows.length
     const [value, setValue] = React.useState(globalFilter)
-    const onChange = useAsyncDebounce(value => {
-      setGlobalFilter(value || undefined)
-    }, 200)
+    //cause excption useAsyncDebounce
+    // const onChange = useAsyncDebounce(value => {
+    //   setGlobalFilter(value || undefined)
+    // }, 200)
 
     return (
       <div className="d-flex flex-row justify-content-between pt-3">
         <div className="row col-md-6 pb-1">
           <div className="col-sm-6 pl-0">
-            <input
+            {/* <input
               className="form-control "
               value={value || ""}
               onChange={e => {
                 setValue(e.target.value);
-                onChange(e.target.value);
+                // onChange(e.target.value);
               }}
               placeholder='Search in all column of the table'
-            />
+            /> */}
           </div>
         </div>
         <div className="col-md-6 d-flex flex-row-reverse ">

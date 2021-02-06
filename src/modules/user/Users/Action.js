@@ -1,5 +1,5 @@
 import types from './ActionTypes';
-import userApi from './../../../utilities/services/UserApi';
+import userApi from '@utilities/services/UserApi';
 
 
 export function createUser(user) {

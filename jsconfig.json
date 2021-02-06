@@ -1,6 +1,13 @@
 {
   "compilerOptions": {
-    "baseUrl": "src"
+    "target": "es2017",
+    "allowSyntheticDefaultImports": false,
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"],
+      "@components/*": ["src/components/*"],
+      "@utilities/*": ["src/utilities/*"],
+    }
   },
-  "include": ["src", "src/Utilities/fontAwsome", "src/Utilities/common"]
+  "exclude": ["node_modules", "dist"]
 }

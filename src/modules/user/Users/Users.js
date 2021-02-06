@@ -11,10 +11,10 @@ import {
   getUser,
 } from './Action';
 import './Users.scss';
-import UserFrom from '../../../components/forms/UserFrom';
-import UserUpdateFrom from '../../../components/forms/UserUpdateFrom';
-import LoadingSpinner from '../../../components/LoadingSpinner/LoadingSpinner';
-import Table from '../../../components/Table/Table';
+import UserFrom from '@components/forms/UserFrom';
+import UserUpdateFrom from '@components/forms/UserUpdateFrom';
+import LoadingSpinner from '@components/LoadingSpinner/LoadingSpinner';
+import Table from '@components/Table/Table';
 
 class Users extends Component {
   constructor(props) {

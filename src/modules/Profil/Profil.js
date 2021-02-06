@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import DisplayInfos from '../../components/DisplayInfos/DisplayInfos';
+import DisplayInfos from '@components/DisplayInfos/DisplayInfos';
 import { useTranslation } from 'react-i18next';
 import { changeUserPassword } from './Action';
 import faker from 'faker';

@@ -1,8 +1,8 @@
 import React from "react"
 import { useTranslation } from "react-i18next";
 import { Field, reduxForm } from "redux-form";
-import { renderInputField } from './../../../utilities/form/formField'
-import { required, email, phoneNumber, number } from './../../../utilities/form/formValidation'
+import { renderInputField } from '@utilities/form/formField'
+import { required, email, phoneNumber, number } from '@utilities/form/formValidation'
 
 const CreateUserForm = props => {
     const { t } = useTranslation();

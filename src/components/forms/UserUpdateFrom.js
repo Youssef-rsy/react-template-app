@@ -1,12 +1,12 @@
 import React from 'react';
 import { Field, reduxForm, Form } from 'redux-form';
-import { renderInputField } from '../../utilities/form/formField';
+import { renderInputField } from '@utilities/form/formField';
 import {
   required,
   email,
   number,
   phoneNumber,
-} from '../../utilities/form/formValidation';
+} from '@utilities/form/formValidation';
 
 const UserUpdateFrom = (props) => {
   const { t, handleSubmit, pristine, reset, submitting } = props;

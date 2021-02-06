@@ -1,8 +1,7 @@
-import { render } from "@testing-library/react"
 import React from "react"
 import { useTranslation } from "react-i18next"
-import { Field, reduxForm, formValueSelector } from 'redux-form'
-import { renderInputField } from './../../utilities/form/formField'
+import { Field, reduxForm } from 'redux-form'
+import { renderInputField } from '@utilities/form/formField'
 
 
 const ChangePasswordForm = props => {

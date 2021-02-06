@@ -2,7 +2,7 @@ import React from "react"
 import { connect } from 'react-redux'
 import { useTranslation } from 'react-i18next';
 import CreateUserForm from "./CreateUserForm";
-import { createUser } from './../Users/Action';
+import { createUser } from '../Users/Action';
 const CreateUser = props => {
     const { t } = useTranslation('common');
 

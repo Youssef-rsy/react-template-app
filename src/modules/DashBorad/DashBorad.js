@@ -1,8 +1,8 @@
-import DoughnutChart from './../../components/charts/Doughnut';
-import GroupedBar from './../../components/charts/GroupedBar';
-import Pie from './../../components/charts/Pie';
-import PolarChart from './../../components/charts/PolarChart';
-import VerticalBar from './../../components/charts/VerticalBar';
+import DoughnutChart from '@components/charts/Doughnut';
+import GroupedBar from '@components/charts/GroupedBar';
+import Pie from '@components//charts/Pie';
+import PolarChart from '@components/charts/PolarChart';
+import VerticalBar from '@components/charts/VerticalBar';
 import React from 'react';
 
 const DashBorad = (props) => {
