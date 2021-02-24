@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import DisplayInfos from '@components/DisplayInfos/DisplayInfos';
+import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 import { changeUserPassword } from './Action';
+import { Card, Row, Col, Modal, Divider, Descriptions } from 'antd';
+const { Meta } = Card;
 import faker from 'faker';
 
 import ChangePasswordForm from './ChangePasswordForm';
@@ -16,6 +19,7 @@ const Profil = () => {
     image,
   } = faker;
   const { t } = useTranslation('common');
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   const getAddress = () => {
     return (
@@ -36,143 +40,75 @@ const Profil = () => {
     const { password } = value;
     changeUserPassword(userId, password);
   }
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
 
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
 
   return (
-
     <div className="container-fluid">
-      <div className="row">
-        <div className="col-lg-3">
-          <div className="card card-primary card-outline">
-            <img
-              className="card-img-top p-3 rounded"
-              src={image.imageUrl()}
-              alt="user image"
+      <Row gutter={16}>
+        <Col className="gutter-row" span={7} xs={20} sm={20} md={6} lg={7} xl={7}>
+          <Card
+            style={{ width: 300 }}
+            cover={
+              <img
+                alt="example"
+                src={image.imageUrl()}
+              />
+            }
+            actions={[
+              <SettingOutlined key="setting" />,
+              <EditOutlined key="edit" onClick={showModal} />,
+              <EllipsisOutlined key="ellipsis" />,
+            ]}
+          >
+            <Meta
+              title={name.firstName() + '  ' + name.lastName()}
+              description={name.jobTitle()}
             />
-            <div className="card-body border-top d-flex flex-column">
-              <h6 className="card-title  d-inline-flex">
-                {name.firstName() + '  ' + name.lastName()}
-              </h6>
-              <p className="card-text  d-inline-flex">{name.jobTitle()}</p>
-            </div>
-            <div className="rta-hr"></div>
-            <div className="card-body d-inline-flex">
-              <a href="#" className="btn btn-outline-primary " data-toggle="modal" data-target="#exampleModal">
-                {t('profil.changePassword')}
-              </a>
-            </div>
-          </div>
-        </div>
-        <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div className="modal-dialog modal-dialog-centered" role="document">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title" id="exampleModalLabel">{t('profil.changePasswordModal.title')}</h5>
-                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
+          </Card>
+        </Col>
 
-              <div className="modal-body">
-                <ChangePasswordForm onSubmit={changePassword} />
-              </div>
+        <Col className="gutter-row" span={17} xs={20} sm={20} md={16} lg={17} xl={17}>
+          <Card >
+            <Divider >{t('profil.personal.title')}</Divider>
+            <Descriptions size="middle">
+              <Descriptions.Item label={t('profil.personal.firstName.label')}>{name.firstName()}</Descriptions.Item>
+              <Descriptions.Item label={t('profil.personal.lastName.label')}>{name.lastName()}</Descriptions.Item>
+              <Descriptions.Item label={t('profil.personal.gender.label')}>Homme</Descriptions.Item>
+              <Descriptions.Item label={t('profil.personal.birthDay.label')}>25/10/1992</Descriptions.Item>
+              <Descriptions.Item label={t('profil.personal.phoneNumber.label')}>2{phoneNumber()}</Descriptions.Item>
+              <Descriptions.Item label={t('profil.personal.birthDay.label')}>25/10/1992</Descriptions.Item>
+              <Descriptions.Item label={t('profil.personal.address.label')}>{getAddress()}</Descriptions.Item>
+            </Descriptions>
+            <Divider >{t('profil.professional.title')}</Divider>
+            <Descriptions size="defult">
+              <Descriptions.Item label={t('profil.professional.team.label')}>DEV</Descriptions.Item>
+              <Descriptions.Item label={t('profil.professional.post.label')}>{name.jobTitle()}</Descriptions.Item>
+              <Descriptions.Item label={t('profil.professional.status.label')}>ONBOARDING</Descriptions.Item>
+              <Descriptions.Item label={t('profil.professional.integrationDate.label')}>12/12/2016</Descriptions.Item>
+            </Descriptions>
+            <Divider >{t('profil.agency.title')}</Divider>
+            <Descriptions size="small">
+              <Descriptions.Item label={t('profil.agency.city.label')}>{address.city()}</Descriptions.Item>
+              <Descriptions.Item label={t('profil.agency.address.label')}>{getAddress()}</Descriptions.Item>
+            </Descriptions>
+          </Card>
 
-            </div>
-          </div>
-        </div>
-        <div className="col-lg-9">
-          <div className="card card-primary card-outline">
-            <div className="card-header d-inline-flex">
-              <h6 className="m-0 ">{t('profil.personal.title')}</h6>
-            </div>
-            <div className="card-body">
-              <DisplayInfos
-                label={t('profil.personal.firstName.label')}
-                name={t('profil.personal.firstName.name')}
-                value={name.firstName()}
-                disabled={true}
-              />
-              <DisplayInfos
-                label={t('profil.personal.lastName.label')}
-                name={t('profil.personal.lastName.name')}
-                value={name.lastName()}
-                disabled={true}
-              />
-              <DisplayInfos
-                label={t('profil.personal.gender.label')}
-                name={t('profil.personal.gender.name')}
-                value="Homme"
-                disabled={true}
-              />
-              <DisplayInfos
-                label={t('profil.personal.birthDay.label')}
-                name={t('profil.personal.birthDay.name')}
-                value="25/10/1992"
-                disabled={true}
-              />
-              <DisplayInfos
-                label={t('profil.personal.address.label')}
-                name={t('profil.personal.address.name')}
-                value={getAddress()}
-                disabled={true}
-              />
-              <DisplayInfos
-                label={t('profil.personal.phoneNumber.label')}
-                name={t('profil.personal.phoneNumber.name')}
-                value={phoneNumber()}
-                disabled={true}
-              />
-            </div>
-            <div className="card-header d-inline-flex">
-              <h6 className="m-0">{t('profil.professional.title')}</h6>
-            </div>
-            <div className="card-body">
-              <DisplayInfos
-                label={t('profil.professional.team.label')}
-                name={t('profil.professional.team.name')}
-                value="DEV"
-                disabled={true}
-              />
-              <DisplayInfos
-                label={t('profil.professional.post.label')}
-                name={t('profil.professional.post.name')}
-                value={name.jobTitle()}
-                disabled={true}
-              />
-              <DisplayInfos
-                label={t('profil.professional.status.label')}
-                name={t('profil.professional.status.name')}
-                value="ONBOARDING"
-                disabled={true}
-              />
-              <DisplayInfos
-                label={t('profil.professional.integrationDate.label')}
-                name={t('profil.professional.integrationDate.name')}
-                value="12/12/2016"
-                disabled={true}
-              />
-            </div>
-            <div className="card-header d-inline-flex">
-              <h6 className="m-0">{t('profil.agency.title')}</h6>
-            </div>
-            <div className="card-body">
-              <DisplayInfos
-                label={t('profil.agency.city.label')}
-                name={t('profil.agency.city.name')}
-                value={address.city()}
-                disabled={true}
-              />
-              <DisplayInfos
-                label={t('profil.agency.address.label')}
-                name={t('profil.agency.address.name')}
-                value={getAddress()}
-                disabled={true}
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+        </Col>
+      </Row>
+      <Modal title={t('profil.changePasswordModal.title')} visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+        <ChangePasswordForm onSubmit={changePassword} />
+      </Modal>
+    </div >
   );
 };
 

@@ -10,7 +10,7 @@ export default i18n
   .use(LanguageDetector) //passing the i18n instance to the module of react-i18next
   .use(initReactI18next) //instantiation of i18next
   .init({
-    backend: { loadPath: './public/locales/{{lng}}/{{ns}}.json' },
+    backend: { loadPath: '/public/locales/{{lng}}/{{ns}}.json' },
     fallbackLng: 'fr', //default language will be English
     ns: ['common'], //, 'errors'],
     defaultNS: 'common',

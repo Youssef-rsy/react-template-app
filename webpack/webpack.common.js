@@ -3,6 +3,7 @@ const fs = require('fs');
 const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const copyWebpackPlugin = require('copy-webpack-plugin');
 const appDirectory = fs.realpathSync(process.cwd());
 const resolveAppPath = relativePath => (path.resolve(appDirectory, relativePath));
 const host = process.env.HOST || 'localhost';
@@ -10,7 +11,8 @@ const host = process.env.HOST || 'localhost';
 const { NODE_PATH } = process.env;
 const sourcePath = path.join(__dirname, '..',);
 const distPath = path.join(__dirname, '..', 'dist',);
-const withReport = true;//process.env.npm_config_withReport;
+const localesPath = path.join(__dirname, '..', 'public', 'locales',);
+
 module.exports = {
     entry: './src/index.js',
     mode: 'development',
@@ -95,11 +97,11 @@ module.exports = {
             },
         ]
     },
-    performance: {
-        hints: false,
-        maxEntrypointSize: 512000,
-        maxAssetSize: 512000
-    },
+    // performance: {
+    //     hints: false,
+    //     maxEntrypointSize: 512000,
+    //     maxAssetSize: 512000
+    // },
     plugins: [
         new HtmlWebpackPlugin({
             favicon: resolveAppPath('public/home.ico'),
@@ -110,12 +112,5 @@ module.exports = {
             filename: "css/[name].[contenthash].css",
             chunkFilename: "css/[id].css"
         }),
-        new CopyPlugin({
-            patterns:
-                [
-                    { from: 'public/locales', to: 'public/locales' },
-                ]
-        }
-        ),
     ]
 };

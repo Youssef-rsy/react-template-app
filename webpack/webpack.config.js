@@ -1,30 +1,21 @@
 const path = require('path');
 const fs = require('fs');
-const appDirectory = fs.realpathSync(process.cwd());
-const resolveAppPath = relativePath => (path.resolve(appDirectory, relativePath));
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-var LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
-var webpack = require('webpack');
 
+const appDirectory = fs.realpathSync(process.cwd());
+const resolveAppPath = relativePath => (path.resolve(appDirectory, relativePath));
 const host = process.env.HOST || 'localhost';
+console.log(process.env.NODE_ENV);
 
-const { NODE_PATH } = process.env;
-console.log(NODE_PATH);
-
-const sourcePath = path.join(__dirname, '..',);
-const distPath = path.join(__dirname, '..', 'dist',);
-const withReport = true;//process.env.npm_config_withReport;
 module.exports = {
     entry: './src/index.js',
     mode: 'development',
-    context: sourcePath,
+    // target: process.env.NODE_ENV === "development" ? "web" : "browserslist",
+    target: "web",
     output: {
-        path: distPath,
+        path: resolveAppPath('dist'),
         filename: 'js/[name].bundle.js',
         chunkFilename: 'js/[id].js',
         publicPath: '/'
@@ -47,12 +38,10 @@ module.exports = {
                         loader: "file-loader",
                         options: {
                             name: "[folder]/[name].[ext]",
-                            outputPath: "assets/locales/"
                         }
                     }
                 ]
             },
-
             {
                 test: /\.css$/,
                 use: [MiniCssExtractPlugin.loader, "style-loader", {
@@ -65,8 +54,16 @@ module.exports = {
                 }],
             },
             {
-                test: /.s?css$/,
-                use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+                test: /\.scss$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    // Translates CSS into CommonJS
+                    'css-loader',
+                    // Compiles Sass to CSS
+                    {
+                        loader: "sass-loader"
+                    }
+                ],
             },
             { // config for images
                 test: /\.(png|svg|jpg|jpeg|gif)$/,
@@ -96,7 +93,6 @@ module.exports = {
                 use: {
                     loader: "babel-loader",
                     options: {
-                        plugins: ['lodash'],
                         presets: ['@babel/preset-env', '@babel/preset-react']
                     }
                 },
@@ -116,12 +112,6 @@ module.exports = {
         new CleanWebpackPlugin({
             cleanOnceBeforeBuildPatterns: ["css/*.*", "js/*.*", "fonts/*.*", "images/*.*"]
         }),
-        //filtering out moment.js locals we didn't use
-        new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
-        //
-        new LodashModuleReplacementPlugin,
-        //bundle report
-        withReport ? new BundleAnalyzerPlugin() : '',
     ],
     devServer: {
 
@@ -145,30 +135,4 @@ module.exports = {
         historyApiFallback: true,
 
     },
-    optimization: {
-        minimize: true,
-        minimizer: [
-            new UglifyJsPlugin({
-                uglifyOptions: {
-                    warnings: false,
-                    parse: {},
-                    compress: {},
-                    mangle: true, // Note `mangle.properties` is `false` by default.
-                    output: null,
-                    toplevel: false,
-                    nameCache: null,
-                    ie8: false,
-                    keep_fnames: false,
-                    output: {
-                        comments: false,
-                    },
-                },
-                sourceMap: true,
-            }),
-            new CssMinimizerPlugin(),
-        ],
-        splitChunks: {
-            chunks: 'all',
-        }
-    }
 };

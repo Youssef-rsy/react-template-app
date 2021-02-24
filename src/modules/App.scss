@@ -1,84 +1,28 @@
 @import './../utilities/scss//variables';
-.app-background{
-  background-color: $background;
+body{
+  height: 100vh;
+}
+.ant-layout{
+  height: 100vh;
+}
+#components-layout-demo-custom-trigger .trigger {
+  padding: 0 24px;
+  font-size: 18px;
+  line-height: 64px;
+  cursor: pointer;
+  transition: color 0.3s;
 }
 
-
-
-
-.brand-image {
-  float: left;
-  line-height: .8;
-  margin-left: .8rem;
-  margin-right: .5rem;
-  margin-top: -3px;
-  max-height: 33px;
-  width: auto;
+#components-layout-demo-custom-trigger .trigger:hover {
+  color: #1890ff;
 }
 
-.App {
-  text-align: center;
+#components-layout-demo-custom-trigger .logo {
+  height: 32px;
+  margin: 16px;
+  background: rgba(255, 255, 255, 0.3);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-/* Works on Firefox */
-* {
-  scrollbar-width: thin;
-  scrollbar-color:  $primary  $secondary;
-}
-
-/* Works on Chrome, Edge, and Safari */
-*::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-
-*::-webkit-scrollbar-track {
-  background: $secondary ;
-}
-
-*::-webkit-scrollbar-thumb {
-  background-color:  $primary ;
-  border-radius: 10px;
-  border: 3px solid secondary;
-}
-
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-
-@media screen and  (min-width: 992px) { 
-
-  .content-width  { 
-  width:83% !important;
-  }
-
-  .fill { 
-    min-height: 100vh;
-  }
-  
- }
-@media screen and  (max-width: 992px) { 
-  
-  .fill { 
-    min-height: 100%;
-  }
- 
+.site-layout .site-layout-background {
+  background: #fff;
 }

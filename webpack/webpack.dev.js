@@ -13,7 +13,6 @@ const environment = 'development';
 
 module.exports = merge(common, {
     mode: 'development',
-    devtool: 'inline-source-map',
     devServer:
     {
         // Serve index.html as the base
@@ -32,7 +31,7 @@ module.exports = merge(common, {
     },
     plugins: [
         new webpack.DefinePlugin({ 'process.env.NODE_ENV': `"${environment}"` }),
-        new webpack.HotModuleReplacementPlugin(),
+        // new webpack.HotModuleReplacementPlugin(),
         withReport ? new BundleAnalyzerPlugin() : '',
     ]
 });
